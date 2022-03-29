@@ -29,15 +29,18 @@ const ProductManager = ({ products, onRemove }: ProductManagerProps) => {
                             <tr key={index}>
                                 <th scope="row">{index + 1}</th>
                                 <td>{product.name}</td>
-                                <td><a href={`${product.img}`}></a></td>
+                                <td scope="row" ><img src={`${product.img}`} alt="" width="10%" /> </td>
                                 <td>{product.price}</td>
                                 <td>{product.quantity}</td>
                                 <td>{product.description}</td>
-                                <td>
+                                <td className="d-flex">
+                                    <div className="px-2">
+                                        <a href={`/products/${product.id}/edit`} className="btn btn-success">update</a>
+                                    </div>
                                     <div className="">
                                         <button onClick={() => onRemove(product.id)} className="btn btn-danger">delete</button>
                                     </div>
-                                    <div className=""></div>
+
                                 </td>
                             </tr>)
                     })}

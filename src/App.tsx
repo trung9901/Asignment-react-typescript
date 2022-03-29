@@ -55,7 +55,7 @@ function App() {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="products">
             <Route index element={<ProductManager products={products} onRemove={onHandleRemove} />} />
-            {/* <Route path=":id/edit" element={<ProductEdit onUpdate={onHandleUpdate} />} /> */}
+            <Route path=":id/edit" element={<ProductEdit onUpdate={onHandleUpdate} />} />
             <Route path="add" element={<ProductAdd onAdd={onHandleAdd} />} />
           </Route>
         </Route>
