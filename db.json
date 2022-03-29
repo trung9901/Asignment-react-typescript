@@ -1,6 +1,5 @@
 {
-  "products": [
-    {
+  "products": [{
       "id": 1,
       "name": "Samsung Galaxy Note 21",
       "price": "29.000.000",
@@ -71,6 +70,28 @@
       "quantity": "123123",
       "description": "ádasfaf",
       "id": 9
+    }
+  ],
+  "categories": [{
+      "name": "Điện thoại - Máy tính bảng"
+    },
+    {
+      "name": "Phụ kiện - Thiết bị số"
+    },
+    {
+      "name": "Máy ảnh - Quay phim"
+    },
+    {
+      "name": "Điện gia dụng - Nhà bếp"
+    },
+    {
+      "name": "Laptop - Thiết bị IT"
+    },
+    {
+      "name": "Máy chơi game - Trò chơi"
+    },
+    {
+      "name": "Trang sức - Sành điệu"
     }
   ]
 }

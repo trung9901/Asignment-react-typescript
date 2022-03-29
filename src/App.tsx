@@ -59,7 +59,7 @@ function App() {
             <Route path="add" element={<ProductAdd onAdd={onHandleAdd} />} />
           </Route>
         </Route>
-        <Route path="login" element={<h1>Login page</h1>} />
+        {/* <Route path="login" element={<h1>Login page</h1>} /> */}
       </Routes>
     </div>
   )
