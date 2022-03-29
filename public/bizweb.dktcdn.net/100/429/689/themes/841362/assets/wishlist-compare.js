@@ -314,9 +314,9 @@ Ego.Compare = {
                         x.push(v.handle);
                     } else {
                         /*
-                                $('.sidebarAllMainCompare .sidebarAllBody').append(v.data);
-                                $('.sidebarAllMainCompare .sidebarAllBody').show();
-                                */
+     $('.sidebarAllMainCompare .sidebarAllBody').append(v.data);
+     $('.sidebarAllMainCompare .sidebarAllBody').show();
+     */
                     }
                 });
 

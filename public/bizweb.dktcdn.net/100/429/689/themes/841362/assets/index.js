@@ -19,7 +19,7 @@ var swiper = new Swiper('.section_slider .swiper-main', {
     }
 });
 
-$(".not-dqtab").each(function(e) {
+$(".not-dqtab").each(function (e) {
     /*khai báo khởi tạo ban đầu cho 2 kiểu tab*/
     var $this1 = $(this);
     var $this2 = $(this);
@@ -27,7 +27,7 @@ $(".not-dqtab").each(function(e) {
     $this1.find('.tabs-title:first-child').addClass('current');
     $this1.find('.tab-content').first().addClass('current');
 
-    $this1.find('.tabtitle1.ajax').click(function() {
+    $this1.find('.tabtitle1.ajax').click(function () {
         var $this2 = $(this),
             tab_id = $this2.attr('data-tab'),
             url = $this2.attr('data-url');
@@ -52,7 +52,7 @@ $(".not-dqtab").each(function(e) {
         if (!$this2.hasClass('has-content')) {
             $this2.addClass('has-content');
             getContentTab(url, "." + datasection + " ." + tab_id);
-            $(window).on('load resize', function() {
+            $(window).on('load resize', function () {
                 resizeImage();
             });
         }
@@ -74,15 +74,15 @@ function getContentTab(url, selector) {
     $.ajax({
         type: 'GET',
         url: url,
-        beforeSend: function() {
+        beforeSend: function () {
             fill.find('.contentfill').html(loading);
         },
-        success: function(data) {
+        success: function (data) {
             var content = $(data);
-            setTimeout(function() {
+            setTimeout(function () {
                 fill.find('.contentfill').html(content.html());
-                setTimeout(function() {
-                    $(selector + ' .swiper-nth').each(function() {
+                setTimeout(function () {
+                    $(selector + ' .swiper-nth').each(function () {
                         var swipertab = new Swiper('.swiper-nth', {
                             slidesPerView: 3,
                             //centeredSlides: true,
@@ -132,7 +132,7 @@ function getContentTab(url, selector) {
                         });
                     });
                 }, 500);
-                $(selector + ' .add_to_cart').click(function(e) {
+                $(selector + ' .add_to_cart').click(function (e) {
                     e.preventDefault();
                     var $this = $(this);
                     var form = $this.parents('form');
@@ -142,8 +142,8 @@ function getContentTab(url, selector) {
                         async: false,
                         data: form.serialize(),
                         dataType: 'json',
-                        beforeSend: function() {},
-                        success: function(line_item) {
+                        beforeSend: function () { },
+                        success: function (line_item) {
                             $('.cart-popup-name').html(line_item.title).attr('href', line_item.url, 'title', line_item.title);
                             ajaxCart.load();
                             $('#popup-cart-desktops, .cart-sidebar, .backdrop__body-backdrop___1rvky').addClass('active');
@@ -367,6 +367,6 @@ if (window.location.href.includes('?section-blog')) {
         scrollTop: $('.section_blog').offset().top
     }, 500);
 }
-setTimeout(function() {
+setTimeout(function () {
     $('.cate-list .swiper-container.swiper-container-initialized').closest('.cate-list').addClass('loaded');
 }, 600);

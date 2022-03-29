@@ -4757,38 +4757,38 @@ Initialise the plugin and define global options
                     <a href="{{url}}" class="ajaxcart__product-image cart_image" title="{{name}}"><img width="80" height="80" src="{{img}}" alt="{{name}}"></a>
                     <div class="grid__item cart_info">
                         <div class="ajaxcart__product-name-wrapper cart_name">
-                            <a href="{{url}}" class="ajaxcart__product-name h4" title="{{name}}">{{name}}</a> {{#if variation}}
-                            <span class="ajaxcart__product-meta variant-title">{{variation}}</span> {{/if}}
+ <a href="{{url}}" class="ajaxcart__product-name h4" title="{{name}}">{{name}}</a> {{#if variation}}
+ <span class="ajaxcart__product-meta variant-title">{{variation}}</span> {{/if}}
                         </div>
                         <div class="grid">
-                            <div class="grid__item one-half cart_select cart_item_name">
-                                <label class="cart_quantity">Số lượng</label>
-                                <div class="ajaxcart__qty input-group-btn">
-                                    <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus items-count" data-id="{{key}}" data-qty="{{itemMinus}}" data-line="{{line}}" aria-label="-">
+ <div class="grid__item one-half cart_select cart_item_name">
+     <label class="cart_quantity">Số lượng</label>
+     <div class="ajaxcart__qty input-group-btn">
+         <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus items-count" data-id="{{key}}" data-qty="{{itemMinus}}" data-line="{{line}}" aria-label="-">
             -
             </button>
-                                    <input type="text" name="updates[]" class="ajaxcart__qty-num number-sidebar" maxlength="3" value="{{itemQty}}" min="0" data-id="{{key}}" data-line="{{line}}" aria-label="quantity" pattern="[0-9]*">
-                                    <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus items-count" data-id="{{key}}" data-line="{{line}}" data-qty="{{itemAdd}}" aria-label="+">
+         <input type="text" name="updates[]" class="ajaxcart__qty-num number-sidebar" maxlength="3" value="{{itemQty}}" min="0" data-id="{{key}}" data-line="{{line}}" aria-label="quantity" pattern="[0-9]*">
+         <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus items-count" data-id="{{key}}" data-line="{{line}}" data-qty="{{itemAdd}}" aria-label="+">
             +							
             </button>
-                                </div>
-                            </div>
-                            <div class="grid__item one-half text-right cart_prices">
-                                <span class="cart-price">{{price}}</span>
-                                <a class="cart__btn-remove remove-item-cart ajaxifyCart--remove" href="javascript:;" data-line="{{line}}">Xóa</a>
-                            </div>
+     </div>
+ </div>
+ <div class="grid__item one-half text-right cart_prices">
+     <span class="cart-price">{{price}}</span>
+     <a class="cart__btn-remove remove-item-cart ajaxifyCart--remove" href="javascript:;" data-line="{{line}}">Xóa</a>
+ </div>
                         </div>
                         {{#if discountsApplied}}
                         <div class="grid grid--table">
-                            <div class="grid__item text-right">
-                                <ul class="order-discount order-discount--list order-discount--title order-discount--cart order-discount--cart-title" aria-label="Giảm giá">
-                                    {{#each discounts}}
-                                    <li class="order-discount__item">
-                                        <span class="icon icon-saletag" aria-hidden="true"></span>{{ this.discount_application.title }} (-{{{ this.formattedAmount }}})
-                                    </li>
-                                    {{/each}}
-                                </ul>
-                            </div>
+ <div class="grid__item text-right">
+     <ul class="order-discount order-discount--list order-discount--title order-discount--cart order-discount--cart-title" aria-label="Giảm giá">
+         {{#each discounts}}
+         <li class="order-discount__item">
+             <span class="icon icon-saletag" aria-hidden="true"></span>{{ this.discount_application.title }} (-{{{ this.formattedAmount }}})
+         </li>
+         {{/each}}
+     </ul>
+ </div>
                         </div>
                         {{/if}}
                     </div>
@@ -4844,34 +4844,34 @@ Initialise the plugin and define global options
                     <a href="{{url}}" class="ajaxcart__product-image cart_image" title="{{name}}"><img src="{{img}}" alt="{{name}}"></a>
                     <div class="grid__item cart_info">
                         <div class="ajaxcart__product-name-wrapper cart_name">
-                            <a href="{{url}}" class="ajaxcart__product-name h4" title="{{name}}">{{name}}</a> {{#if variation}}
-                            <span class="ajaxcart__product-meta variant-title">{{variation}}</span> {{/if}}
-                            <a class="cart__btn-remove remove-item-cart ajaxifyCart--remove" href="javascript:;" data-line="{{line}}">Xóa</a>
+ <a href="{{url}}" class="ajaxcart__product-name h4" title="{{name}}">{{name}}</a> {{#if variation}}
+ <span class="ajaxcart__product-meta variant-title">{{variation}}</span> {{/if}}
+ <a class="cart__btn-remove remove-item-cart ajaxifyCart--remove" href="javascript:;" data-line="{{line}}">Xóa</a>
 
                         </div>
                         <div class="grid">
-                            <div class="grid__item one-half text-right cart_prices">
-                                <span class="cart-price">{{price}}</span>
-                            </div>
+ <div class="grid__item one-half text-right cart_prices">
+     <span class="cart-price">{{price}}</span>
+ </div>
                         </div>
                         <div class="grid">
-                            <div class="grid__item one-half cart_select">
-                                <div class="ajaxcart__qty input-group-btn">
-                                    <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus items-count" data-id="{{key}}" data-qty="{{itemMinus}}" data-line="{{line}}" aria-label="-">
+ <div class="grid__item one-half cart_select">
+     <div class="ajaxcart__qty input-group-btn">
+         <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus items-count" data-id="{{key}}" data-qty="{{itemMinus}}" data-line="{{line}}" aria-label="-">
               -
             </button>
-                                    <input type="text" name="updates[]" class="ajaxcart__qty-num number-sidebar" maxlength="3" value="{{itemQty}}" min="0" data-id="{{key}}" data-line="{{line}}" aria-label="quantity" pattern="[0-9]*">
-                                    <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus items-count" data-id="{{key}}" data-line="{{line}}" data-qty="{{itemAdd}}" aria-label="+">
+         <input type="text" name="updates[]" class="ajaxcart__qty-num number-sidebar" maxlength="3" value="{{itemQty}}" min="0" data-id="{{key}}" data-line="{{line}}" aria-label="quantity" pattern="[0-9]*">
+         <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus items-count" data-id="{{key}}" data-line="{{line}}" data-qty="{{itemAdd}}" aria-label="+">
               +							
             </button>
-                                </div>
-                            </div>
+     </div>
+ </div>
                         </div>
                         <div class="grid">
-                            <div class="grid__item one-half text-right cart_prices">
-                                <span class="cart-price">{{linePrice}}</span>
+ <div class="grid__item one-half text-right cart_prices">
+     <span class="cart-price">{{linePrice}}</span>
 
-                            </div>
+ </div>
                         </div>
                     </div>
                 </div>
@@ -4886,21 +4886,21 @@ Initialise the plugin and define global options
                     <div class="ajaxcart__subtotal">
                         {{#if cartDiscountsApplied}}
                         <div class="grid grid--table ajaxcart__discounts">
-                            {{#each cartDiscounts}}
-                            <div class="grid__item two-thirds">
-                                <span class="order-discount order-discount--title order-discount--cart-title">
+ {{#each cartDiscounts}}
+ <div class="grid__item two-thirds">
+     <span class="order-discount order-discount--title order-discount--cart-title">
             <span class="icon icon-saletag" aria-hidden="true"></span><span class="visually-hidden">%:</span>{{ this.title }}
-                                </span>
-                            </div>
-                            <div class="grid__item one-third text-right">
-                                <span class="order-discount">-{{{ this.formattedAmount }}}</span>
-                            </div>
-                            {{/each}}
+     </span>
+ </div>
+ <div class="grid__item one-third text-right">
+     <span class="order-discount">-{{{ this.formattedAmount }}}</span>
+ </div>
+ {{/each}}
                         </div>
                         {{/if}}
                         <div class="cart__subtotal">
-                            <div class="cart__col-6">Tổng tiền:</div>
-                            <div class="text-right cart__totle"><span class="total-price">{{{totalPrice}}}</span></div>
+ <div class="cart__col-6">Tổng tiền:</div>
+ <div class="text-right cart__totle"><span class="total-price">{{{totalPrice}}}</span></div>
                         </div>
                     </div>
                     <div class="cart__btn-proceed-checkout-dt">
@@ -4923,26 +4923,26 @@ Initialise the plugin and define global options
                     <a href="{{url}}" class="ajaxcart__product-image cart_image" title="{{name}}"><img width="80" height="80" src="{{img}}" alt="{{name}}"></a>
                     <div class="grid__item cart_info">
                         <div class="ajaxcart__product-name-wrapper cart_name">
-                            <a href="{{url}}" class="ajaxcart__product-name h4" title="{{name}}">{{name}}</a> {{#if variation}}
-                            <span class="ajaxcart__product-meta variant-title">{{variation}}</span> {{/if}}
+ <a href="{{url}}" class="ajaxcart__product-name h4" title="{{name}}">{{name}}</a> {{#if variation}}
+ <span class="ajaxcart__product-meta variant-title">{{variation}}</span> {{/if}}
                         </div>
                         <div class="grid">
-                            <div class="grid__item one-half cart_select cart_item_name">
-                                <label class="cart_quantity">Số lượng</label>
-                                <div class="ajaxcart__qty input-group-btn">
-                                    <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus items-count" data-id="{{key}}" data-qty="{{itemMinus}}" data-line="{{line}}" aria-label="-">
+ <div class="grid__item one-half cart_select cart_item_name">
+     <label class="cart_quantity">Số lượng</label>
+     <div class="ajaxcart__qty input-group-btn">
+         <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus items-count" data-id="{{key}}" data-qty="{{itemMinus}}" data-line="{{line}}" aria-label="-">
             -
             </button>
-                                    <input type="text" name="updates[]" class="ajaxcart__qty-num number-sidebar" maxlength="3" value="{{itemQty}}" min="0" data-id="{{key}}" data-line="{{line}}" aria-label="quantity" pattern="[0-9]*">
-                                    <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus items-count" data-id="{{key}}" data-line="{{line}}" data-qty="{{itemAdd}}" aria-label="+">
+         <input type="text" name="updates[]" class="ajaxcart__qty-num number-sidebar" maxlength="3" value="{{itemQty}}" min="0" data-id="{{key}}" data-line="{{line}}" aria-label="quantity" pattern="[0-9]*">
+         <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus items-count" data-id="{{key}}" data-line="{{line}}" data-qty="{{itemAdd}}" aria-label="+">
             +							
             </button>
-                                </div>
-                            </div>
-                            <div class="grid__item one-half text-right cart_prices">
-                                <span class="cart-price">{{price}}</span>
-                                <a class="cart__btn-remove remove-item-cart ajaxifyCart--remove" href="javascript:;" data-line="{{line}}">Xóa</a>
-                            </div>
+     </div>
+ </div>
+ <div class="grid__item one-half text-right cart_prices">
+     <span class="cart-price">{{price}}</span>
+     <a class="cart__btn-remove remove-item-cart ajaxifyCart--remove" href="javascript:;" data-line="{{line}}">Xóa</a>
+ </div>
                         </div>
                     </div>
                 </div>
@@ -4981,34 +4981,34 @@ Initialise the plugin and define global options
                     <a href="{{url}}" class="ajaxcart__product-image cart_image" title="{{name}}"><img width="80" height="80" src="{{img}}" alt="{{name}}"></a>
                     <div class="grid__item cart_info">
                         <div class="ajaxcart__product-name-wrapper cart_name">
-                            <a href="{{url}}" class="ajaxcart__product-name h4" title="{{name}}">{{name}}</a> {{#if variation}}
-                            <span class="ajaxcart__product-meta variant-title">{{variation}}</span> {{/if}}
-                            <a class="cart__btn-remove remove-item-cart ajaxifyCart--remove" href="javascript:;" data-line="{{line}}">Xóa</a>
+ <a href="{{url}}" class="ajaxcart__product-name h4" title="{{name}}">{{name}}</a> {{#if variation}}
+ <span class="ajaxcart__product-meta variant-title">{{variation}}</span> {{/if}}
+ <a class="cart__btn-remove remove-item-cart ajaxifyCart--remove" href="javascript:;" data-line="{{line}}">Xóa</a>
 
                         </div>
                         <div class="grid">
-                            <div class="grid__item one-half text-right cart_prices">
-                                <span class="cart-price">{{price}}</span>
-                            </div>
+ <div class="grid__item one-half text-right cart_prices">
+     <span class="cart-price">{{price}}</span>
+ </div>
                         </div>
                         <div class="grid">
-                            <div class="grid__item one-half cart_select">
-                                <div class="ajaxcart__qty input-group-btn">
-                                    <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus items-count" data-id="{{key}}" data-qty="{{itemMinus}}" data-line="{{line}}" aria-label="-">
+ <div class="grid__item one-half cart_select">
+     <div class="ajaxcart__qty input-group-btn">
+         <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus items-count" data-id="{{key}}" data-qty="{{itemMinus}}" data-line="{{line}}" aria-label="-">
               -
             </button>
-                                    <input type="text" name="updates[]" class="ajaxcart__qty-num number-sidebar" maxlength="3" value="{{itemQty}}" min="0" data-id="{{key}}" data-line="{{line}}" aria-label="quantity" pattern="[0-9]*">
-                                    <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus items-count" data-id="{{key}}" data-line="{{line}}" data-qty="{{itemAdd}}" aria-label="+">
+         <input type="text" name="updates[]" class="ajaxcart__qty-num number-sidebar" maxlength="3" value="{{itemQty}}" min="0" data-id="{{key}}" data-line="{{line}}" aria-label="quantity" pattern="[0-9]*">
+         <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus items-count" data-id="{{key}}" data-line="{{line}}" data-qty="{{itemAdd}}" aria-label="+">
               +							
             </button>
-                                </div>
-                            </div>
+     </div>
+ </div>
                         </div>
                         <div class="grid">
-                            <div class="grid__item one-half text-right cart_prices">
-                                <span class="cart-price">{{linePrice}}</span>
+ <div class="grid__item one-half text-right cart_prices">
+     <span class="cart-price">{{linePrice}}</span>
 
-                            </div>
+ </div>
                         </div>
                     </div>
                 </div>
@@ -5020,8 +5020,8 @@ Initialise the plugin and define global options
                 <div class="col-lg-4 col-12 offset-md-8 offset-lg-8 offset-xl-8">
                     <div class="ajaxcart__subtotal">
                         <div class="cart__subtotal">
-                            <div class="cart__col-6">Tổng tiền:</div>
-                            <div class="text-right cart__totle"><span class="total-price">{{{totalPrice}}}</span></div>
+ <div class="cart__col-6">Tổng tiền:</div>
+ <div class="text-right cart__totle"><span class="total-price">{{{totalPrice}}}</span></div>
                         </div>
                     </div>
                     <div class="cart__btn-proceed-checkout-dt">
@@ -5045,37 +5045,37 @@ Initialise the plugin and define global options
                     <a href="{{url}}" class="ajaxcart__product-image cart_image" title="{{name}}"><img width="80" height="80" src="{{img}}" alt="{{name}}"></a>
                     <div class="grid__item cart_info">
                         <div class="ajaxcart__product-name-wrapper cart_name">
-                            <a href="{{url}}" class="ajaxcart__product-name h4" title="{{name}}">{{name}}</a> {{#if variation}}
-                            <span class="ajaxcart__product-meta variant-title">{{variation}}</span> {{/if}}
+ <a href="{{url}}" class="ajaxcart__product-name h4" title="{{name}}">{{name}}</a> {{#if variation}}
+ <span class="ajaxcart__product-meta variant-title">{{variation}}</span> {{/if}}
                         </div>
                         <div class="grid">
-                            <div class="grid__item one-half cart_select cart_item_name">
-                                <div class="ajaxcart__qty input-group-btn">
-                                    <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus items-count" data-id="{{key}}" data-qty="{{itemMinus}}" data-line="{{line}}" aria-label="-">
+ <div class="grid__item one-half cart_select cart_item_name">
+     <div class="ajaxcart__qty input-group-btn">
+         <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus items-count" data-id="{{key}}" data-qty="{{itemMinus}}" data-line="{{line}}" aria-label="-">
             -
             </button>
-                                    <input type="text" name="updates[]" class="ajaxcart__qty-num number-sidebar" maxlength="3" value="{{itemQty}}" min="0" data-id="{{key}}" data-line="{{line}}" aria-label="quantity" pattern="[0-9]*">
-                                    <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus items-count" data-id="{{key}}" data-line="{{line}}" data-qty="{{itemAdd}}" aria-label="+">
+         <input type="text" name="updates[]" class="ajaxcart__qty-num number-sidebar" maxlength="3" value="{{itemQty}}" min="0" data-id="{{key}}" data-line="{{line}}" aria-label="quantity" pattern="[0-9]*">
+         <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus items-count" data-id="{{key}}" data-line="{{line}}" data-qty="{{itemAdd}}" aria-label="+">
             +							
             </button>
-                                </div>
-                            </div>
-                            <div class="grid__item one-half text-right cart_prices">
-                                <span class="cart-price">{{price}}</span>
-                                <a class="cart__btn-remove remove-item-cart ajaxifyCart--remove" href="javascript:;" data-line="{{line}}">Xóa</a>
-                            </div>
+     </div>
+ </div>
+ <div class="grid__item one-half text-right cart_prices">
+     <span class="cart-price">{{price}}</span>
+     <a class="cart__btn-remove remove-item-cart ajaxifyCart--remove" href="javascript:;" data-line="{{line}}">Xóa</a>
+ </div>
                         </div>
                         {{#if discountsApplied}}
                         <div class="grid grid--table">
-                            <div class="grid__item text-right">
-                                <ul class="order-discount order-discount--list order-discount--title order-discount--cart order-discount--cart-title" aria-label="Giảm giá">
-                                    {{#each discounts}}
-                                    <li class="order-discount__item">
-                                        <span class="icon icon-saletag" aria-hidden="true"></span>{{ this.discount_application.title }} (-{{{ this.formattedAmount }}})
-                                    </li>
-                                    {{/each}}
-                                </ul>
-                            </div>
+ <div class="grid__item text-right">
+     <ul class="order-discount order-discount--list order-discount--title order-discount--cart order-discount--cart-title" aria-label="Giảm giá">
+         {{#each discounts}}
+         <li class="order-discount__item">
+             <span class="icon icon-saletag" aria-hidden="true"></span>{{ this.discount_application.title }} (-{{{ this.formattedAmount }}})
+         </li>
+         {{/each}}
+     </ul>
+ </div>
                         </div>
                         {{/if}}
                     </div>

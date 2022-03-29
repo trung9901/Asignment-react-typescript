@@ -1,3 +1,28 @@
 {
-    "products": []
+  "products": [
+    {
+      "id": 1,
+      "name": "Samsung Galaxy Note 21",
+      "price": "29.000.000",
+      "img": "https://bizweb.dktcdn.net/100/429/689/products/dien-thoai-samsung-galaxy-s21-ultra-5g-256g-g998b-bac-h0l175-b6ac0e17-afc8-42a9-bb4f-aecaf81ad7e2.jpg?v=1623565400000",
+      "quantity": "12",
+      "description": ""
+    },
+    {
+      "id": 2,
+      "name": "Apple iPhone 12 Mini New",
+      "price": "26.000.000",
+      "img": "https://bizweb.dktcdn.net/100/429/689/products/dien-thoai-samsung-galaxy-s21-ultra-5g-256g-g998b-bac-h0l175-b6ac0e17-afc8-42a9-bb4f-aecaf81ad7e2.jpg?v=1623565400000",
+      "quantity": "62",
+      "description": ""
+    },
+    {
+      "id": 3,
+      "name": "iPhone XR - Vàng Chính Hãng",
+      "price": "28.000.000",
+      "img": "https://bizweb.dktcdn.net/100/429/689/products/dien-thoai-samsung-galaxy-s21-ultra-5g-256g-g998b-bac-h0l175-b6ac0e17-afc8-42a9-bb4f-aecaf81ad7e2.jpg?v=1623565400000",
+      "quantity": "12",
+      "description": ""
+    }
+  ]
 }

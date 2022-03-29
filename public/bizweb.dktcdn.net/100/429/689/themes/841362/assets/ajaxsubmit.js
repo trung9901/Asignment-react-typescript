@@ -1,7 +1,7 @@
 /*!
 Mailchimp Ajax Submit
 */
-(function($) {
+(function ($) {
     "use strict";
     $.ajaxChimp = {
         responses: {
@@ -15,12 +15,12 @@ Mailchimp Ajax Submit
         translations: {
             en: null
         },
-        init: function(selector, options) {
+        init: function (selector, options) {
             $(selector).ajaxChimp(options)
         }
     };
-    $.fn.ajaxChimp = function(options) {
-        $(this).each(function(i, elem) {
+    $.fn.ajaxChimp = function (options) {
+        $(this).each(function (i, elem) {
             var form = $(elem);
             var email = form.find("input[type=email]");
             var label = form.find("label[for=" + email.attr("id") + "]");
@@ -31,7 +31,7 @@ Mailchimp Ajax Submit
             var url = settings.url.replace("/post?", "/post-json?").concat("&c=?");
             form.attr("novalidate", "true");
             email.attr("name", "EMAIL");
-            form.submit(function() {
+            form.submit(function () {
                 var msg;
 
                 function successCallback(resp) {
@@ -73,7 +73,7 @@ Mailchimp Ajax Submit
                 }
                 var data = {};
                 var dataArray = form.serializeArray();
-                $.each(dataArray, function(index, item) {
+                $.each(dataArray, function (index, item) {
                     data[item.name] = item.value
                 });
                 $.ajax({
@@ -81,7 +81,7 @@ Mailchimp Ajax Submit
                     data: data,
                     success: successCallback,
                     dataType: "jsonp",
-                    error: function(resp, text) {
+                    error: function (resp, text) {
                         console.log("mailchimp ajax submit error: " + text)
                     }
                 });
