@@ -1,5 +1,5 @@
 import React from 'react'
-import { ProductType } from '../../types/Product'
+import { ProductType } from '../../../types/Product'
 
 type ProductManagerProps = {
     products: ProductType[]

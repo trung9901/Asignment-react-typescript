@@ -93,5 +93,11 @@
     {
       "name": "Trang sức - Sành điệu"
     }
-  ]
+  ],
+  "users": [{
+    "name": "asdas",
+    "id": 1,
+    "email": "admin@gmail.com",
+    "password": "123456"
+  }]
 }

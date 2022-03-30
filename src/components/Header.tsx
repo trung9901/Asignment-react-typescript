@@ -43,7 +43,7 @@ const Header = (props: Props) => {
                             </div>
                             <div className="contact-phone account-header not">
                                 <p>Xin chào!</p>
-                                <a href="/account/login">Đăng nhập</a>
+                                <a href="/signin">Đăng nhập</a>
                             </div>
                         </div>
                         <div className="col-lg-2 col-md-3 col-6 col-account order-2 order-md-3">

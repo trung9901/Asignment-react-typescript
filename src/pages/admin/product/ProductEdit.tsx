@@ -1,9 +1,10 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { ProductType } from '../../types/Product';
-type ProductAddProps = {
-    onAdd: (props: ProductType) => void
+import { ProductType } from '../../../types/Product';
+import { read } from '../../../api/Product';
+type ProductEditProps = {
+    onUpdate: (props: ProductType) => void
 }
 type FormInputs = {
     name: string,
@@ -12,13 +13,24 @@ type FormInputs = {
     quantity: number,
     description: string
 }
-const ProductAdd = (props: ProductAddProps) => {
-    const { register, handleSubmit, formState: { errors } } = useForm<FormInputs>()
+const ProductEdit = (props: ProductEditProps) => {
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<FormInputs>()
     const Navigate = useNavigate();
+    const { id } = useParams();
+
+    useEffect(() => {
+        const getProduct = async () => {
+            const { data } = await read(id);
+            reset(data);
+        }
+        getProduct();
+    }, [])
+
     const onSubmit: SubmitHandler<FormInputs> = (data: any) => {
-        props.onAdd(data)
+        props.onUpdate(data)
         Navigate("/admin/products")
     }
+
     return (
         <div>
             <form action="" onSubmit={handleSubmit(onSubmit)} >
@@ -42,11 +54,11 @@ const ProductAdd = (props: ProductAddProps) => {
                     <label htmlFor="exampleFormControlTextarea1">Description</label>
                     <textarea className="form-control" id="description" {...register('description')} />
                 </div>
-                <button type="submit" className="btn btn-primary">Thêm sản phẩm</button>
+                <button type="submit" className="btn btn-primary">Cập nhật sản phẩm</button>
 
             </form>
         </div>
     )
 }
 
-export default ProductAdd
+export default ProductEdit

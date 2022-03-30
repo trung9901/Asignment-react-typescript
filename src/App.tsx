@@ -4,14 +4,17 @@ import { create, list, remove, update } from './api/Product';
 import PrivateRouter from './components/PrivateRouter';
 import ProductList from './components/ProductList';
 import Dashboard from './pages/admin/Dashboard';
-import ProductAdd from './pages/admin/ProductAdd';
-import ProductEdit from './pages/admin/ProductEdit';
-import ProductManager from './pages/admin/ProductManager';
+import ProductAdd from './pages/admin/product/ProductAdd';
+import ProductEdit from './pages/admin/product/ProductEdit';
+import ProductManager from './pages/admin/product/ProductManager';
+import UserManager from './pages/admin/user/UserManager';
 import AdminLayout from './pages/layouts/AdminLayout';
 
 import WebsiteLayout from './pages/layouts/WebsiteLayout';
 import ProductDetail from './pages/products/ProductDetail';
 import ProductPage from './pages/products/ProductPage';
+import Signin from './pages/Signin';
+import Signup from './pages/Signup';
 import { ProductType } from './types/Product';
 
 
@@ -48,6 +51,8 @@ function App() {
             <Route index element={<ProductPage />} />
             <Route path=":id" element={<ProductDetail />} />
           </Route>
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/signin" element={<Signin />} />
         </Route>
 
         <Route path="admin" element={<AdminLayout />}>
@@ -58,8 +63,11 @@ function App() {
             <Route path=":id/edit" element={<ProductEdit onUpdate={onHandleUpdate} />} />
             <Route path="add" element={<ProductAdd onAdd={onHandleAdd} />} />
           </Route>
+          {/* <Route path="users">
+            <Route index element={<UserManager />} />
+          </Route> */}
         </Route>
-        {/* <Route path="login" element={<h1>Login page</h1>} /> */}
+
       </Routes>
     </div>
   )
