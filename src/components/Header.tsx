@@ -22,8 +22,8 @@ const Header = (props: Props) => {
                         <div className="col-lg-8 col-xl-7 col-md-5 col-10 col-search order-3 order-md-2">
                             <div className="theme-search-smart">
                                 <div className="header_search theme-searchs">
-                                    <form action="/search" className="input-group search-bar theme-header-search-form ultimate-search" role="search">
-                                        <input type="text" aria-label="Tìm sản phẩm" name="query" defaultValue autoComplete="off" placeholder="Tìm kiếm sản phẩm..." className="search-auto input-group-field auto-search" required />
+                                    <form action="/search" className="" role="search">
+                                        <input type="text" aria-label="Tìm sản phẩm" name="query" autoComplete="off" placeholder="Tìm kiếm sản phẩm..." className="search-auto input-group-field auto-search" required />
                                         <input type="hidden" name="type" defaultValue="product" />
                                         <span className="input-group-btn">
                                             <button type="submit" className="btn icon-fallback-text" aria-label="Justify">

@@ -29,7 +29,7 @@ const Signin = () => {
                     <div className="row">
                         <div className="col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
                             <div className="border border-2 border-danger m-5 row">
-                                <div className="col m-5">
+                                <div className="col-8 p-4">
                                     <div className="group-login group-log">
                                         <h1>
                                             Đăng nhập tài khoản
@@ -47,17 +47,17 @@ const Signin = () => {
                                                 <label>Mật khẩu <span className="required">*</span> </label>
                                                 <input type="password" className="form-control form-control-lg" name="password" id="customer_password" placeholder="Mật khẩu" required />
                                             </fieldset>
-                                            <button className="btn-login" type="submit" value="Đăng nhập">Đăng nhập</button>
+                                            <button className="btn btn-danger mx-auto" type="submit" value="Đăng nhập">Đăng nhập</button>
                                         </form>
                                         <div className="block social-login--facebooks">
                                             <p className="a-center">
                                                 <span>Hoặc đăng nhập bằng</span>
                                             </p>
-                                            <a href="javascript:void(0)" className="social-login--facebook" onclick="loginFacebook()"><img width="129px" height="37px" alt="facebook-login-button" src="//bizweb.dktcdn.net/assets/admin/images/login/fb-btn.svg" /></a>
-                                            <a href="javascript:void(0)" className="social-login--google" onclick="loginGoogle()"><img width="129px" height="37px" alt="google-login-button" src="//bizweb.dktcdn.net/assets/admin/images/login/gp-btn.svg" /></a>
+                                            <a href="javascript:void(0)" className="social-login--facebook" ><img width="129px" height="37px" alt="facebook-login-button" src="//bizweb.dktcdn.net/assets/admin/images/login/fb-btn.svg" /></a>
+                                            <a href="javascript:void(0)" className="social-login--google" ><img width="129px" height="37px" alt="google-login-button" src="//bizweb.dktcdn.net/assets/admin/images/login/gp-btn.svg" /></a>
                                         </div>
-                                        <p>
-                                            Bạn quên mật khẩu bấm <a href="#" onclick="showRecoverPasswordForm();return false;">vào đây</a>
+                                        <p className="text-center">
+                                            Bạn quên mật khẩu bấm <a href="#" className="text-danger text-decoration-underline" >vào đây</a>
                                         </p>
                                     </div>
                                     <div className="group-login group-recover d-none">
@@ -73,14 +73,14 @@ const Signin = () => {
                                             <p className="error">
                                             </p>
                                             <fieldset className="form-group">
-                                                <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" className="form-control form-control-lg" defaultValue name="Email" id="recover-email" placeholder="Email" required />
+                                                <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" className="form-control form-control-lg" name="Email" id="recover-email" placeholder="Email" required />
                                             </fieldset>
                                             <input className="btn-login" type="submit" defaultValue="Gửi yêu cầu" />
-                                            <a href="#" className="btn-ref" onclick="hideRecoverPasswordForm();return false;">Hủy</a>
+                                            <a href="#" className="btn-ref" >Hủy</a>
                                         </form>
                                     </div>
                                 </div>
-                                <div className="col bg-danger text-white">
+                                <div className="col bg-danger text-white p-5" >
                                     <h4>
                                         Quyền lợi với thành viên
                                     </h4>
@@ -88,7 +88,7 @@ const Signin = () => {
                                         <p>Vận chuyển siêu tốc</p>							<p>Sản phẩm đa dạng				</p>							<p>Đổi trả dễ dàng</p>
                                         <p>Tích điểm đổi quà</p>						<p>Được giảm giá cho lần mua tiếp theo lên đến 10%						</p>
                                     </div>
-                                    <a href="/account/register" className="btn-register-default">Đăng ký</a>
+                                    <a href="/signup" className="btn border border-white text-white">Đăng ký</a>
                                 </div>
                             </div>
                         </div>

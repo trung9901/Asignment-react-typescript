@@ -1,5 +1,5 @@
 export type ProductType = {
-    id?: number,
+    _id?: number,
     name: String,
     price: number
     img: String,

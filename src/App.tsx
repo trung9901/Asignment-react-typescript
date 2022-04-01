@@ -31,7 +31,7 @@ function App() {
 
   const onHandleRemove = (id: number) => {
     remove(id);
-    setProducts(products.filter(item => item.id !== id))
+    setProducts(products.filter(item => item._id !== id))
   }
   const onHandleAdd = async (product: ProductType) => {
     const { data } = await create(product);
@@ -39,7 +39,7 @@ function App() {
   }
   const onHandleUpdate = async (product: ProductType) => {
     const { data } = await update(product);
-    setProducts(products.map(item => item.id == data.id ? data : item));
+    setProducts(products.map(item => item._id == data.id ? data : item));
   }
 
   return (

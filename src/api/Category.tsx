@@ -19,7 +19,7 @@ export const remove = (id: number) => {
     return instance.delete(url);
 }
 export const update = (category: CategoryType) => {
-    const url = `/categories/${category.id}`;
+    const url = `/categories/${category._id}`;
     return instance.put(url, category);
 }
 
