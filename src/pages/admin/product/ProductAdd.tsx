@@ -8,7 +8,7 @@ type ProductAddProps = {
 type FormInputs = {
     name: string,
     price: number,
-    img: string,
+    // img: string,
     quantity: number,
     description: string
 }
@@ -17,6 +17,7 @@ const ProductAdd = (props: ProductAddProps) => {
     const Navigate = useNavigate();
     const onSubmit: SubmitHandler<FormInputs> = (data: any) => {
         props.onAdd(data)
+        // console.log(data)
         Navigate("/admin/products")
     }
     return (
@@ -26,10 +27,10 @@ const ProductAdd = (props: ProductAddProps) => {
                     <label htmlFor="exampleFormControlInput1">Name</label>
                     <input type="text" className="form-control" id="name" placeholder="Tên sản phẩm" {...register('name')} />
                 </div>
-                <div className="form-group">
+                {/* <div className="form-group">
                     <label htmlFor="exampleFormControlFile1">image</label>
                     <input type="file" className="form-control-file" id="img" {...register('img')} />
-                </div>
+                </div> */}
                 <div className="form-group">
                     <label htmlFor="">Price</label>
                     <input type="number" className="form-control" id="price" placeholder="Giá" {...register('price')} />

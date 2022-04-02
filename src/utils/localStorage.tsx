@@ -1,6 +1,6 @@
-import { User } from "../types/User";
+import { UserType } from "../types/User";
 
-export const authenticated = (user: User, next: () => void) => {
+export const authenticated = (user: UserType, next: () => void) => {
     localStorage.setItem('user', JSON.stringify(user));
     next();
 }

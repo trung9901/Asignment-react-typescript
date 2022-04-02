@@ -16,8 +16,8 @@ import ProductPage from './pages/products/ProductPage';
 import Signin from './pages/Signin';
 import Signup from './pages/Signup';
 import { ProductType } from './types/Product';
-
-
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.min.css"
 function App() {
   const [isLoading, setIsLoading] = useState(false)
   const [products, setProducts] = useState<ProductType[]>([])
@@ -30,16 +30,45 @@ function App() {
   }, []);
 
   const onHandleRemove = (id: number) => {
-    remove(id);
-    setProducts(products.filter(item => item._id !== id))
+    // remove(id);
+    // setProducts(products.filter(item => item._id !== id))
+    try {
+      if (window.confirm('Are you sure you want to remove')) {
+
+        toast.success("xoa thanh cong");
+        remove(id);
+        setProducts(products.filter(item => item._id !== id))
+      } else {
+        toast.error("xoa that bai")
+      }
+    } catch (error) {
+
+    }
+
   }
   const onHandleAdd = async (product: ProductType) => {
-    const { data } = await create(product);
-    setProducts([...products, data]);
+    // const { data } = await create(product);
+    // setProducts([...products, data]);
+    try {
+      const { data } = await create(product);
+      if (data) {
+        toast.success("them san pham thanh cong")
+        setProducts([...products, data]);
+      }
+    } catch (error) {
+
+    }
   }
   const onHandleUpdate = async (product: ProductType) => {
-    const { data } = await update(product);
-    setProducts(products.map(item => item._id == data.id ? data : item));
+    try {
+      const { data } = await update(product);
+      if (data) {
+        setProducts(products.map(item => item._id == data.id ? data : item));
+        toast.success("Sua thanh cong");
+      }
+    } catch (error) {
+
+    }
   }
 
   return (

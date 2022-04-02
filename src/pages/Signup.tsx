@@ -27,7 +27,7 @@ const Signup = () => {
                                     <h1>
                                         Đăng ký tài khoản
                                     </h1>
-                                    <form acceptCharset="utf-8" method="post">
+                                    <form onSubmit={handleSubmit(onSubmit)}>
                                         <input name="FormType" type="hidden" defaultValue="customer_register" />
                                         <input name="utf8" type="hidden" defaultValue="true" /><input type="hidden" id="Token-38479df13c0348c59a8b6212a3c4c0d7" name="Token" />
                                         <p className="error">
@@ -35,16 +35,16 @@ const Signup = () => {
 
                                         <fieldset className="form-group">
                                             <label>Tên <span className="required">*</span></label>
-                                            <input type="text" className="form-control form-control-lg" name="firstName" id="firstName" placeholder="Tên" required />
+                                            <input type="text" className="form-control form-control-lg" id="firstName" placeholder="Tên" required {...register('name')} />
                                         </fieldset>
 
                                         <fieldset className="form-group">
                                             <label>Email <span className="required">*</span></label>
-                                            <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" className="form-control form-control-lg" name="email" id="email" placeholder="Email" required />
+                                            <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" className="form-control form-control-lg" id="email" placeholder="Email" required {...register('email')} />
                                         </fieldset>
                                         <fieldset className="form-group">
                                             <label>Mật khẩu <span className="required">*</span> </label>
-                                            <input type="password" className="form-control form-control-lg" name="password" id="password" placeholder="Mật khẩu" required />
+                                            <input type="password" className="form-control form-control-lg" id="password" placeholder="Mật khẩu" required {...register('password')} />
                                         </fieldset>
                                         <button className="btn-login btn btn-danger mx-auto" type="submit" value="Đăng ký">Đăng ký</button>
                                     </form>

@@ -34,18 +34,18 @@ const Signin = () => {
                                         <h1>
                                             Đăng nhập tài khoản
                                         </h1>
-                                        <form acceptCharset="utf-8" action="/account/login" id="customer_login" method="post">
+                                        <form onSubmit={handleSubmit(onSubmit)} >
                                             <input name="FormType" type="hidden" defaultValue="customer_login" />
                                             <input name="utf8" type="hidden" defaultValue="true" />
                                             <p className="error">
                                             </p>
                                             <fieldset className="form-group">
                                                 <label>Email <span className="required">*</span></label>
-                                                <input type="email" className="form-control form-control-lg" name="email" id="customer_email" placeholder="Email" required />
+                                                <input type="email" className="form-control form-control-lg" id="customer_email" placeholder="Email" required {...register('email')} />
                                             </fieldset>
                                             <fieldset className="form-group">
                                                 <label>Mật khẩu <span className="required">*</span> </label>
-                                                <input type="password" className="form-control form-control-lg" name="password" id="customer_password" placeholder="Mật khẩu" required />
+                                                <input type="password" className="form-control form-control-lg" id="customer_password" placeholder="Mật khẩu" required {...register('password')} />
                                             </fieldset>
                                             <button className="btn btn-danger mx-auto" type="submit" value="Đăng nhập">Đăng nhập</button>
                                         </form>

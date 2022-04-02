@@ -35,10 +35,10 @@ const ProductManager = ({ products, onRemove }: ProductManagerProps) => {
                                 <td>{product.description}</td>
                                 <td className="d-flex">
                                     <div className="px-2">
-                                        <a href={`/products/${product.id}/edit`} className="btn btn-success">update</a>
+                                        <a href={`/products/${product._id}/edit`} className="btn btn-success">update</a>
                                     </div>
                                     <div className="">
-                                        <button onClick={() => onRemove(product.id)} className="btn btn-danger">delete</button>
+                                        <button onClick={() => onRemove(product._id)} className="btn btn-danger">delete</button>
                                     </div>
 
                                 </td>

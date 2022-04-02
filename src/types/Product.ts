@@ -2,7 +2,7 @@ export type ProductType = {
     _id?: number,
     name: String,
     price: number
-    img: String,
+    // img: String,
     quantity: number,
     description: String
 }
