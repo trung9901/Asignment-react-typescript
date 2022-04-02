@@ -2,7 +2,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { signin, signup } from '../api/auth';
 import { authenticated } from '../utils/localStorage';
-
+import { ToastContainer, toast } from 'react-toastify';
 type TypeInputs = {
     email: string,
     password: string
@@ -12,13 +12,20 @@ const Signin = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<TypeInputs>();
     const navigate = useNavigate();
 
-    const onSubmit: SubmitHandler<TypeInputs> = async data => {
-        const { data: user } = await signin(data);
+    const onSubmit: SubmitHandler<TypeInputs> = async (dataSignin) => {
+        const { data: user } = await signin(dataSignin);
         console.log(user);
         // localstorage
-        authenticated(user, () => {
-            navigate('/');
-        })
+        if (user) {
+            toast.success("Bạn đã đăng nhập thành công chờ 3s")
+            setTimeout(() => {
+                authenticated(user, () => {
+                    navigate('/');
+                })
+            }, 3000);
+        }
+
+
     }
     return (
 

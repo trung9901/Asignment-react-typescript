@@ -1,6 +1,7 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { signup } from '../api/auth';
+import { ToastContainer, toast } from 'react-toastify';
 
 type TypeInputs = {
     name: string,
@@ -14,7 +15,11 @@ const Signup = () => {
 
     const onSubmit: SubmitHandler<TypeInputs> = data => {
         signup(data);
-        navigate("/signin");
+        toast.success("Đăng ký thành công chuyển về trang đăng nhập")
+        setTimeout(() => {
+            navigate("/signin");
+        }, 2000);
+
     }
     return (
         <div className="page-content-account">

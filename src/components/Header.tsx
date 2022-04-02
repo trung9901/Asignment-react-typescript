@@ -1,5 +1,6 @@
 import React from 'react'
 import Nav from './Nav'
+import { NavLink } from 'react-router-dom';
 
 type Props = {}
 
@@ -16,7 +17,7 @@ const Header = (props: Props) => {
                         </div>
                         <div className="d-lg-none d-block col-2 order-3 menumobilebutton">
                             <div className="category-action">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" id="iconcate-action" x="0px" y="0px" viewBox="0 0 384.97 384.97" style={{ enableBackground: 'new 0 0 384.97 384.97' }} xmlSpace="preserve"> <g> <g id="Menu_1_"> <path d="M12.03,120.303h360.909c6.641,0,12.03-5.39,12.03-12.03c0-6.641-5.39-12.03-12.03-12.03H12.03    c-6.641,0-12.03,5.39-12.03,12.03C0,114.913,5.39,120.303,12.03,120.303z" /> <path d="M372.939,180.455H12.03c-6.641,0-12.03,5.39-12.03,12.03s5.39,12.03,12.03,12.03h360.909c6.641,0,12.03-5.39,12.03-12.03    S379.58,180.455,372.939,180.455z" /> <path d="M372.939,264.667H132.333c-6.641,0-12.03,5.39-12.03,12.03c0,6.641,5.39,12.03,12.03,12.03h240.606    c6.641,0,12.03-5.39,12.03-12.03C384.97,270.056,379.58,264.667,372.939,264.667z" /> </g> </g> </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" id="iconcate-action" x="0px" y="0px" viewBox="0 0 384.97 384.97" xmlSpace="preserve"> <g> <g id="Menu_1_"> <path d="M12.03,120.303h360.909c6.641,0,12.03-5.39,12.03-12.03c0-6.641-5.39-12.03-12.03-12.03H12.03    c-6.641,0-12.03,5.39-12.03,12.03C0,114.913,5.39,120.303,12.03,120.303z" /> <path d="M372.939,180.455H12.03c-6.641,0-12.03,5.39-12.03,12.03s5.39,12.03,12.03,12.03h360.909c6.641,0,12.03-5.39,12.03-12.03    S379.58,180.455,372.939,180.455z" /> <path d="M372.939,264.667H132.333c-6.641,0-12.03,5.39-12.03,12.03c0,6.641,5.39,12.03,12.03,12.03h240.606    c6.641,0,12.03-5.39,12.03-12.03C384.97,270.056,379.58,264.667,372.939,264.667z" /> </g> </g> </svg>
                             </div>
                         </div>
                         <div className="col-lg-8 col-xl-7 col-md-5 col-10 col-search order-3 order-md-2">
@@ -43,7 +44,8 @@ const Header = (props: Props) => {
                             </div>
                             <div className="contact-phone account-header not">
                                 <p>Xin chào!</p>
-                                <a href="/signin">Đăng nhập</a>
+                                <NavLink to="/signin">Đăng nhập</NavLink>
+                                {/* <a href="/signin">Đăng nhập</a> */}
                             </div>
                         </div>
                         <div className="col-lg-2 col-md-3 col-6 col-account order-2 order-md-3">
