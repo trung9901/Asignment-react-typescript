@@ -38,10 +38,10 @@ const ProductEdit = (props: ProductEditProps) => {
                     <label htmlFor="exampleFormControlInput1">Name</label>
                     <input type="text" className="form-control" id="name" placeholder="Tên sản phẩm" {...register('name')} />
                 </div>
-                <div className="form-group">
+                {/* <div className="form-group">
                     <label htmlFor="exampleFormControlFile1">image</label>
                     <input type="file" className="form-control-file" id="img" {...register('img')} />
-                </div>
+                </div> */}
                 <div className="form-group">
                     <label htmlFor="">Price</label>
                     <input type="number" className="form-control" id="price" placeholder="Giá" {...register('price')} />

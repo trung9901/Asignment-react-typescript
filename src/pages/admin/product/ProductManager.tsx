@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { ProductType } from '../../../types/Product'
 
 type ProductManagerProps = {
@@ -6,7 +7,7 @@ type ProductManagerProps = {
     onRemove: (id: number) => void
 }
 
-const ProductManager = ({ products, onRemove }: ProductManagerProps) => {
+const ProductManager = (props: ProductManagerProps) => {
     return (
         <div>
             <h2>Quản lý sản phẩm</h2>
@@ -24,7 +25,7 @@ const ProductManager = ({ products, onRemove }: ProductManagerProps) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {products?.map((product, index) => {
+                    {props.products?.map((product, index) => {
                         return (
                             <tr key={index}>
                                 <th scope="row">{index + 1}</th>
@@ -35,10 +36,11 @@ const ProductManager = ({ products, onRemove }: ProductManagerProps) => {
                                 <td>{product.description}</td>
                                 <td className="d-flex">
                                     <div className="px-2">
-                                        <a href={`/products/${product._id}/edit`} className="btn btn-success">update</a>
+                                        <Link to={`${product._id}/edit`} className="btn btn-success">Update</Link>
+                                        {/* <a href={`/products/${product._id}/edit`} className="btn btn-success">update</a> */}
                                     </div>
                                     <div className="">
-                                        <button onClick={() => onRemove(product._id)} className="btn btn-danger">delete</button>
+                                        <button onClick={() => props.onRemove(product._id)} className="btn btn-danger">delete</button>
                                     </div>
 
                                 </td>

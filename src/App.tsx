@@ -60,11 +60,13 @@ function App() {
     }
   }
   const onHandleUpdate = async (product: ProductType) => {
+    // const { data } = await update(product);
+    // setProducts(products.map(item => item.id == data.id ? data : item));
     try {
       const { data } = await update(product);
       if (data) {
-        setProducts(products.map(item => item._id == data.id ? data : item));
         toast.success("Sua thanh cong");
+        setProducts(products.map(item => item._id == data._id ? product : item))
       }
     } catch (error) {
 
@@ -84,7 +86,7 @@ function App() {
           <Route path="/signin" element={<Signin />} />
         </Route>
 
-        <Route path="admin" element={<AdminLayout />}>
+        <Route path="admin" element={<PrivateRouter><AdminLayout /></PrivateRouter>}>
           <Route index element={<Navigate to="dashboard" />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="products">
