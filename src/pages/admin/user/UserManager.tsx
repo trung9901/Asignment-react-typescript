@@ -32,7 +32,17 @@ const UserManager = ({ users, onRemove }: UserManagerProps) => {
 
                                 <td>{user.email}</td>
                                 <td>{user.password}</td>
-                                <td>{user.role}</td>
+                                <td>  {(() => {
+                                    if (user.role == 1) {
+                                        return (
+                                            <p>Admin</p>
+                                        )
+                                    } else {
+                                        return (
+                                            <p>Khách hàng</p>
+                                        )
+                                    }
+                                })()} </td>
                                 <td className="d-flex">
                                     <div className="px-2">
                                         <Link to={`${user._id}/edit`} className="btn btn-success">Update</Link>

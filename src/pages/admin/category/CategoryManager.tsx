@@ -11,6 +11,7 @@ const CategoryManager = (props: CategoryManagerProps) => {
     return (
         <div>
             <h2>Quản lý danh mục</h2>
+            <Link to={`add`} className="btn btn-primary my-3" >Thêm danh mục </Link>
             <table className="table">
                 <thead>
                     <tr>

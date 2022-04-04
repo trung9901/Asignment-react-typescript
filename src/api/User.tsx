@@ -4,7 +4,7 @@ import { isAuthenticate } from '../utils/localStorage';
 import instance from './instance';
 
 const user = isAuthenticate();
-console.log(user);
+
 
 export const listusers = () => {
     const url = `/users`;

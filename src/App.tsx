@@ -25,6 +25,14 @@ import { PostType } from './types/Post';
 import { CategoryType } from './types/Category';
 import { addCategory, listCategory, removeCategory, updateCategory } from './api/Category';
 import CategoryManager from './pages/admin/category/CategoryManager';
+import CategoryEdit from './pages/admin/category/CategoryEdit';
+import CategoryAdd from './pages/admin/category/CategoryAdd';
+import UserEdit from './pages/admin/user/UserEdit';
+import PostManager from './pages/admin/post/PostManager';
+import PostAdd from './pages/admin/post/PostAdd';
+import PostEdit from './pages/admin/post/PostEdit';
+
+
 function App() {
   const [isLoading, setIsLoading] = useState(false)
   const [products, setProducts] = useState<ProductType[]>([])
@@ -152,7 +160,7 @@ function App() {
 
   // post
 
-  const PostRemove = (id: number) => {
+  const PostsRemove = (id: number) => {
     try {
       if (window.confirm('Are you sure you want to remove')) {
 
@@ -166,7 +174,7 @@ function App() {
 
     }
   }
-  const PostAdd = async (post: PostType) => {
+  const PostsAdd = async (post: PostType) => {
     try {
       const { data } = await addPost(post);
       if (data) {
@@ -178,7 +186,7 @@ function App() {
 
     }
   }
-  const PostUpdate = async (post: PostType) => {
+  const PostsUpdate = async (post: PostType) => {
     try {
       const { data } = await updatePost(post);
       if (data) {
@@ -191,7 +199,7 @@ function App() {
   }
 
   // category
-  const CategoryRemove = (id: number) => {
+  const CategoriesRemove = (id: number) => {
     try {
       if (window.confirm('Are you sure you want to remove')) {
 
@@ -205,12 +213,12 @@ function App() {
 
     }
   }
-  const CategoryAdd = async (category: CategoryType) => {
+  const CategoriesAdd = async (category: CategoryType) => {
     try {
-      const { data } = await addCategory(categor);
+      const { data } = await addCategory(category);
       if (data) {
         toast.success("Them thanh cong");
-        setCategories([...category, data]);
+        setCategories([...categories, data]);
 
       }
     } catch (error: {}) {
@@ -218,7 +226,7 @@ function App() {
 
     }
   }
-  const CategoryUpdate = async (category: CategoryType) => {
+  const CategoriesUpdate = async (category: CategoryType) => {
     try {
       const { data } = await updateCategory(category);
       if (data) {
@@ -245,19 +253,37 @@ function App() {
         <Route path="admin" element={<PrivateRouter><AdminLayout /></PrivateRouter>}>
           <Route index element={<Navigate to="dashboard" />} />
           <Route path="dashboard" element={<Dashboard />} />
+
+
+          {/* product */}
           <Route path="products">
             <Route index element={<ProductManager products={products} onRemove={onHandleRemove} />} />
             <Route path=":id/edit" element={<ProductEdit onUpdate={onHandleUpdate} />} />
             <Route path="add" element={<ProductAdd onAdd={onHandleAdd} />} />
           </Route>
+
+          {/* category */}
           <Route path="categories">
-            <Route index element={<CategoryManager categories={categories} onRemove={CategoryRemove} />} />
+            <Route index element={<CategoryManager categories={categories} onRemove={CategoriesRemove} />} />
+            <Route path=":id/edit" element={<CategoryEdit onUpdate={CategoriesUpdate} />} />
+            <Route path="add" element={<CategoryAdd onAdd={CategoriesAdd} />} />
           </Route>
 
+
+          {/* user */}
           <Route path="users">
             <Route index element={<UserManager users={users} onRemove={UserRemove} />} />
-            {/* <Route path="add" element={<UserAdd onAdd={onHanAdd} />} /> */}
-            {/* <Route path=":id/edit" element={<UserEdit onUpdate={onHanUpdate} />} /> */}
+
+            <Route path=":id/edit" element={<UserEdit onUpdate={UserUpdate} />} />
+          </Route>
+
+
+          {/* post */}
+          <Route path="posts">
+            <Route index element={<PostManager posts={posts} onRemove={PostsRemove} />} />
+            <Route path=":id/edit" element={<PostEdit onUpdate={PostsUpdate} />} />
+            <Route path="add" element={<PostAdd onAdd={PostsAdd} />} />
+
           </Route>
         </Route>
 

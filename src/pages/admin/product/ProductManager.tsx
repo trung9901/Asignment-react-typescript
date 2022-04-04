@@ -11,6 +11,7 @@ const ProductManager = (props: ProductManagerProps) => {
     return (
         <div>
             <h2>Quản lý sản phẩm</h2>
+            <Link to={`add`} className="btn btn-primary my-3" >Thêm sản phẩm </Link>
             <table className="table">
                 <thead>
                     <tr>
@@ -50,7 +51,7 @@ const ProductManager = (props: ProductManagerProps) => {
 
                 </tbody>
             </table>
-            <Link to={`add`} className="" >Thêm sản phẩm </Link>
+
         </div>
     )
 }
