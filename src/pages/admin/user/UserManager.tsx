@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { UserType } from '../../../types/User'
 
 type UserManagerProps = {
@@ -17,6 +18,7 @@ const UserManager = ({ users, onRemove }: UserManagerProps) => {
                         <th scope="col">Tên </th>
                         <th scope="col">Email</th>
                         <th scope="col">Mật khẩu</th>
+                        <th scope="col">Phân quyền</th>
                         <th scope="col"></th>
 
                     </tr>
@@ -30,13 +32,13 @@ const UserManager = ({ users, onRemove }: UserManagerProps) => {
 
                                 <td>{user.email}</td>
                                 <td>{user.password}</td>
-
+                                <td>{user.role}</td>
                                 <td className="d-flex">
                                     <div className="px-2">
-                                        <a href={`/users/${user.id}/edit`} className="btn btn-success">update</a>
+                                        <Link to={`${user._id}/edit`} className="btn btn-success">Update</Link>
                                     </div>
                                     <div className="">
-                                        <button onClick={() => onRemove(user.id)} className="btn btn-danger">delete</button>
+                                        <button onClick={() => onRemove(user._id)} className="btn btn-danger">delete</button>
                                     </div>
 
                                 </td>

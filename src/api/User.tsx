@@ -1,37 +1,37 @@
 
-import { CategoryType } from '../types/Category';
+import { UserType } from '../types/User';
 import { isAuthenticate } from '../utils/localStorage';
 import instance from './instance';
 
 const user = isAuthenticate();
 console.log(user);
 
-export const listCategory = () => {
-    const url = `/categorys`;
+export const listusers = () => {
+    const url = `/users`;
     return instance.get(url);
 };
-export const readCategory = (_id: number | string) => {
-    const url = `/categorys/${_id}`;
+export const readusers = (_id: number | string) => {
+    const url = `/users/${_id}`;
     return instance.get(url);
 };
-export const addCategory = (product: CategoryType) => {
-    const url = `/categorys/${user?.user._id}`;
+export const addusers = (product: UserType) => {
+    const url = `/users/${user?.user._id}`;
     return instance.post(url, product, {
         headers: {
             "Authorization": `Bearer ${user?.token}`
         }
     });
 };
-export const removeCategory = (id: number | string) => {
-    const url = `/categorys/${user?.user._id}/${id}`;
+export const removeusers = (id: number | string) => {
+    const url = `/users/${user?.user._id}/${id}`;
     return instance.delete(url, {
         headers: {
             "Authorization": `Bearer ${user?.token}`
         }
     });
 };
-export const updateCategory = (product: CategoryType) => {
-    const url = `/categorys/${user?.user._id}/${product._id}`;
+export const updateusers = (product: UserType) => {
+    const url = `/users/${user?.user._id}/${product._id}`;
     return instance.put(url, product, {
         headers: {
             "Authorization": `Bearer ${user?.token}`

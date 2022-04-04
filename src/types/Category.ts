@@ -1,3 +1,5 @@
 export type CategoryType = {
-    name: string;
+    _id?: number | string,
+    name: string,
+
 }
