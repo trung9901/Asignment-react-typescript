@@ -2,15 +2,18 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { ProductType } from '../../../types/Product';
+import { CategoryType } from '../../../types/Category';
 type ProductAddProps = {
     onAdd: (props: ProductType) => void
+    categories: CategoryType[]
 }
 type FormInputs = {
     name: string,
     price: number,
     // img: string,
     quantity: number,
-    description: string
+    description: string,
+    category:string
 }
 const ProductAdd = (props: ProductAddProps) => {
     const { register, handleSubmit, formState: { errors } } = useForm<FormInputs>()
@@ -39,6 +42,15 @@ const ProductAdd = (props: ProductAddProps) => {
                     <label htmlFor="">Quantity</label>
                     <input type="number" className="form-control" id="quantity" placeholder="Số lượng" {...register('quantity')} />
                 </div>
+                <div className="from-group">
+                <select className="form-select" aria-label="Default select example" {...register('category')}>
+                                                        <option selected>Danh Muc</option>
+                                                        {props.categories?.map((item, index) =>
+                                                            <option value={item._id}>{item.name}</option>
+                                                        )}
+                                                    </select>
+                </div>
+             
                 <div className="form-group">
                     <label htmlFor="exampleFormControlTextarea1">Description</label>
                     <textarea className="form-control" id="description" {...register('description')} />

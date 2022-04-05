@@ -1,12 +1,14 @@
 import React from 'react'
+import { CategoryType } from '../types/Category'
 import { ProductType } from '../types/Product'
 import Banner from './Banner'
 import Search from './Search'
-type ProductListProps = {
+type HomePageProps = {
     products: ProductType[]
+    categories: CategoryType[]
 }
 
-const ProductList = ({ products }: ProductListProps) => {
+const HomePage = ({ products,categories }: HomePageProps) => {
     return (
         <div>
             <div className="main-index">
@@ -17,15 +19,19 @@ const ProductList = ({ products }: ProductListProps) => {
                         <div className="cate-list">
                             <div className="swiper-container">
                                 <div className="swiper-wrapper bg-white">
-                                    <div className="">
+                                    {categories?.map((category,index)=>{
+                                        return(<div className="" key={index}>
                                         <div className="cate-item">
-                                            <a className="image" href="/dien-thoai-may-tinh-bang" title="Điện thoại - Máy tính bảng">
+                                            <a className="image" href="/dien-thoai-may-tinh-bang" title={category.name}>
                                                 <img className="image_cate_thumb lazyload" width={80} height={80} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-src="//bizweb.dktcdn.net/thumb/small/100/429/689/collections/icon1.png?v=1623548877697" alt="Điện thoại - Máy tính bảng" />
                                             </a>
-                                            <h4 className="title_cate_"><a href="/dien-thoai-may-tinh-bang" title="Điện thoại - Máy tính bảng">Điện thoại - Máy tính bảng</a></h4>
+                                            <h4 className="title_cate_"><a href="/dien-thoai-may-tinh-bang" title={category.name}>{category.name}</a></h4>
                                         </div>
                                     </div>
-                                    <div className="">
+                                        )
+                                    })}
+                                    
+                                    {/* <div className="">
                                         <div className="cate-item">
                                             <a className="image" href="/phu-kien-thiet-bi-so" title="Phụ kiện - Thiết bị số">
                                                 <img className="image_cate_thumb lazyload" width={80} height={80} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-src="//bizweb.dktcdn.net/thumb/small/100/429/689/collections/icon2.png?v=1623549042517" alt="Phụ kiện - Thiết bị số" />
@@ -72,7 +78,7 @@ const ProductList = ({ products }: ProductListProps) => {
                                             </a>
                                             <h4 className="title_cate_"><a href="/trang-suc-sanh-dieu" title="Trang sức - Sành điệu">Trang sức - Sành điệu</a></h4>
                                         </div>
-                                    </div>
+                                    </div> */}
 
                                 </div>
                             </div>
@@ -915,4 +921,4 @@ const ProductList = ({ products }: ProductListProps) => {
     )
 }
 
-export default ProductList
+export default HomePage

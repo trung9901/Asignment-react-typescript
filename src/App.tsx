@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { create, list, remove, update } from './api/Product';
 import PrivateRouter from './components/PrivateRouter';
-import ProductList from './components/ProductList';
+import ProductList from './components/HomePage';
 import Dashboard from './pages/admin/Dashboard';
 import ProductAdd from './pages/admin/product/ProductAdd';
 import ProductEdit from './pages/admin/product/ProductEdit';
@@ -31,6 +31,7 @@ import UserEdit from './pages/admin/user/UserEdit';
 import PostManager from './pages/admin/post/PostManager';
 import PostAdd from './pages/admin/post/PostAdd';
 import PostEdit from './pages/admin/post/PostEdit';
+import HomePage from './components/HomePage';
 
 
 function App() {
@@ -241,7 +242,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<WebsiteLayout />} >
-          <Route index element={<ProductList products={products} />} />
+          <Route index element={<HomePage categories={categories} products={products} />} />
           <Route path="product">
             <Route index element={<ProductPage />} />
             <Route path=":id" element={<ProductDetail />} />
@@ -258,8 +259,8 @@ function App() {
           {/* product */}
           <Route path="products">
             <Route index element={<ProductManager products={products} onRemove={onHandleRemove} />} />
-            <Route path=":id/edit" element={<ProductEdit onUpdate={onHandleUpdate} />} />
-            <Route path="add" element={<ProductAdd onAdd={onHandleAdd} />} />
+            <Route path=":id/edit" element={<ProductEdit onUpdate={onHandleUpdate} categories={categories}/>} />
+            <Route path="add" element={<ProductAdd onAdd={onHandleAdd} categories={categories}/>} />
           </Route>
 
           {/* category */}

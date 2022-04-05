@@ -4,5 +4,7 @@ export type ProductType = {
     price: number
     // img: String,
     quantity: number,
-    description: String
+    description: String,
+    category:string
+
 }
