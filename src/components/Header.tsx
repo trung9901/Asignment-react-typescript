@@ -1,10 +1,13 @@
 import React from 'react'
 import Nav from './Nav'
 import { NavLink } from 'react-router-dom';
+import { isAuthenticate } from '../utils/localStorage';
 
 type Props = {}
 
 const Header = (props: Props) => {
+
+    const user = isAuthenticate();
     return (
         <div>
             <div className="header">
@@ -43,8 +46,9 @@ const Header = (props: Props) => {
                                 <a href="tel:19006750">19006750</a>
                             </div>
                             <div className="contact-phone account-header not">
-                                <p>Xin chào!</p>
-                                <NavLink to="/signin">Đăng nhập</NavLink>
+                                <p>Xin chào {user?.user.name}!</p>
+                                {user ? <NavLink to="" onClick={() => { localStorage.removeItem('user') }}>Đăng xuất</NavLink> : <NavLink to="/signin">Đăng nhập</NavLink>}
+
                                 {/* <a href="/signin">Đăng nhập</a> */}
                             </div>
                         </div>
