@@ -8,7 +8,7 @@ type HomePageProps = {
     categories: CategoryType[]
 }
 
-const HomePage = ({ products,categories }: HomePageProps) => {
+const HomePage = ({ products, categories }: HomePageProps) => {
     return (
         <div>
             <div className="main-index">
@@ -19,18 +19,18 @@ const HomePage = ({ products,categories }: HomePageProps) => {
                         <div className="cate-list">
                             <div className="swiper-container">
                                 <div className="swiper-wrapper bg-white">
-                                    {categories?.map((category,index)=>{
-                                        return(<div className="" key={index}>
-                                        <div className="cate-item">
-                                            <a className="image" href="/dien-thoai-may-tinh-bang" title={category.name}>
-                                                <img className="image_cate_thumb lazyload" width={80} height={80} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-src="//bizweb.dktcdn.net/thumb/small/100/429/689/collections/icon1.png?v=1623548877697" alt="Điện thoại - Máy tính bảng" />
-                                            </a>
-                                            <h4 className="title_cate_"><a href="/dien-thoai-may-tinh-bang" title={category.name}>{category.name}</a></h4>
+                                    {categories?.map((category, index) => {
+                                        return (<div className="" key={index}>
+                                            <div className="cate-item">
+                                                <a className="image" href="/dien-thoai-may-tinh-bang" title={category.name}>
+                                                    <img className="image_cate_thumb lazyload" width={80} height={80} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-src="//bizweb.dktcdn.net/thumb/small/100/429/689/collections/icon1.png?v=1623548877697" alt="Điện thoại - Máy tính bảng" />
+                                                </a>
+                                                <h4 className="title_cate_"><a href="/dien-thoai-may-tinh-bang" title={category.name}>{category.name}</a></h4>
+                                            </div>
                                         </div>
-                                    </div>
                                         )
                                     })}
-                                    
+
                                     {/* <div className="">
                                         <div className="cate-item">
                                             <a className="image" href="/phu-kien-thiet-bi-so" title="Phụ kiện - Thiết bị số">
@@ -447,7 +447,7 @@ const HomePage = ({ products,categories }: HomePageProps) => {
                                                 <div className=" item_product_main">
                                                     <form action="/cart/add" method="post" className="variants product-action wishItem" data-cart-form data-id="product-actions-21989403" encType="multipart/form-data">
                                                         <div className="product-thumbnail sale " data-sale="Giảm 5% ">
-                                                            <a className="image_thumb" href={`/product/${product._id}`} title="Samsung Galaxy Note 21">
+                                                            <a className="image_thumb" href={`/products/${product._id}`} title="Samsung Galaxy Note 21">
                                                                 <picture>
 
                                                                     <source media="(min-width: 1200px)" srcSet="//bizweb.dktcdn.net/thumb/medium/100/429/689/products/dien-thoai-samsung-galaxy-s21-ultra-5g-256g-g998b-bac-h0l175-b6ac0e17-afc8-42a9-bb4f-aecaf81ad7e2.jpg?v=1623565400000" />
@@ -470,7 +470,7 @@ const HomePage = ({ products,categories }: HomePageProps) => {
                                                             </div>
                                                         </div>
                                                         <div className="product-info">
-                                                            <h3 className="product-name"><a href={`/product/${product._id}`} title="Samsung Galaxy Note 21">{product.name}</a></h3>
+                                                            <h3 className="product-name"><a href={`/products/${product._id}`} title="Samsung Galaxy Note 21">{product.name}</a></h3>
                                                             <div className="price-box">
                                                                 <span className="price">{product.price}₫</span>
                                                                 <span className="compare-price">30.500.000₫</span>

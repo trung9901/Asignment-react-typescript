@@ -1,8 +1,11 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
+import { isAuthenticate } from '../utils/localStorage';
 
 type Props = {}
 
 const Nav = (props: Props) => {
+    const user = isAuthenticate();
     return (
         <div>
 
@@ -202,19 +205,22 @@ const Nav = (props: Props) => {
                                 <nav className="header-nav">
                                     <ul className="item_big">
                                         <li className="nav-item active ">
-                                            <a className="a-img" href="/" title="Trang chủ">
+                                            <NavLink to="/">Trang chủ</NavLink>
+                                            {/* <a className="a-img" href="/" title="Trang chủ">
                                                 Trang chủ
-                                            </a>
+                                            </a> */}
                                         </li>
                                         <li className="nav-item ">
-                                            <a className="a-img" href="/gioi-thieu" title="Giới thiệu">
+                                            <NavLink to="/gioi-thieu">Giới thiệu</NavLink>
+                                            {/* <a className="a-img" href="/gioi-thieu" title="Giới thiệu">
                                                 Giới thiệu
-                                            </a>
+                                            </a> */}
                                         </li>
                                         <li className="nav-item ">
-                                            <a className="a-img caret-down" href="/collections/all" title="Sản phẩm">
+                                            <NavLink className="a-img caret-down" to="/products">Sản phẩm</NavLink>
+                                            {/* <a className="a-img caret-down" href="/collections/all" title="Sản phẩm">
                                                 Sản phẩm
-                                            </a>
+                                            </a> */}
                                             <i className="fa fa-caret-down" />
                                             <ul className="item_small">
                                                 <li>
@@ -235,32 +241,32 @@ const Nav = (props: Props) => {
                                                     </ul>
                                                 </li>
                                                 <li>
-                                                    <a className href="/phu-kien-thiet-bi-so" title="Phụ kiện - Thiết bị số">
+                                                    <a href="/phu-kien-thiet-bi-so" title="Phụ kiện - Thiết bị số">
                                                         Phụ kiện - Thiết bị số
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a className href="/may-anh-quay-phim" title="Máy ảnh - Quay phim">
+                                                    <a href="/may-anh-quay-phim" title="Máy ảnh - Quay phim">
                                                         Máy ảnh - Quay phim
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a className href="/dien-gia-dung-nha-bep" title="Điện gia dụng - Nhà bếp">
+                                                    <a href="/dien-gia-dung-nha-bep" title="Điện gia dụng - Nhà bếp">
                                                         Điện gia dụng - Nhà bếp
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a className href="/laptop-thiet-bi-it" title="Laptop - Thiết bị IT">
+                                                    <a href="/laptop-thiet-bi-it" title="Laptop - Thiết bị IT">
                                                         Laptop - Thiết bị IT
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a className href="/may-choi-game-tro-choi" title="Máy chơi game - Trò chơi">
+                                                    <a href="/may-choi-game-tro-choi" title="Máy chơi game - Trò chơi">
                                                         Máy chơi game - Trò chơi
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a className href="/trang-suc-sanh-dieu" title="Trang sức - Sành điệu">
+                                                    <a href="/trang-suc-sanh-dieu" title="Trang sức - Sành điệu">
                                                         Trang sức - Sành điệu
                                                     </a>
                                                 </li>
@@ -291,12 +297,12 @@ const Nav = (props: Props) => {
                                                     </ul>
                                                 </li>
                                                 <li>
-                                                    <a className href="/nha-cua-doi-song" title="Nhà cửa đời sống">
+                                                    <a href="/nha-cua-doi-song" title="Nhà cửa đời sống">
                                                         Nhà cửa đời sống
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a className href="/sach-tieu-thuyet" title="Sách - Tiểu thuyết">
+                                                    <a href="/sach-tieu-thuyet" title="Sách - Tiểu thuyết">
                                                         Sách - Tiểu thuyết
                                                     </a>
                                                 </li>
@@ -358,7 +364,8 @@ const Nav = (props: Props) => {
                                     <a href="tel:19006750">19006750</a>
                                 </div>
                                 <div className="contact-phone account-header not">
-                                    <p>Xin chào!</p>
+
+                                    <p>Xin chào {user?.user.email}!</p>
                                     <a href="/account/login">Đăng nhập</a>
                                 </div>
                             </div>

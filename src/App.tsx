@@ -243,8 +243,8 @@ function App() {
       <Routes>
         <Route path="/" element={<WebsiteLayout />} >
           <Route index element={<HomePage categories={categories} products={products} />} />
-          <Route path="product">
-            <Route index element={<ProductPage />} />
+          <Route path="products">
+            <Route index element={<ProductPage products={products} />} />
             <Route path=":id" element={<ProductDetail />} />
           </Route>
           <Route path="/signup" element={<Signup />} />
@@ -259,8 +259,8 @@ function App() {
           {/* product */}
           <Route path="products">
             <Route index element={<ProductManager products={products} onRemove={onHandleRemove} />} />
-            <Route path=":id/edit" element={<ProductEdit onUpdate={onHandleUpdate} categories={categories}/>} />
-            <Route path="add" element={<ProductAdd onAdd={onHandleAdd} categories={categories}/>} />
+            <Route path=":id/edit" element={<ProductEdit onUpdate={onHandleUpdate} categories={categories} />} />
+            <Route path="add" element={<ProductAdd onAdd={onHandleAdd} categories={categories} />} />
           </Route>
 
           {/* category */}
