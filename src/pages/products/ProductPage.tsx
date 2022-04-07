@@ -176,22 +176,22 @@ const ProductPage = ({ products }: ProductPageProps) => {
                                                     <div className="sort-cate-left">
                                                         <ul className='d-flex gap-3'>
                                                             <li className="btn-quick-sort alpha-asc">
-                                                                <a href="javascript:;" onclick="sortby('alpha-asc')" title="Tên A-Z"><i />Tên A-Z</a>
+                                                                <a href="javascript:;" onClick="sortby('alpha-asc')" title="Tên A-Z"><i />Tên A-Z</a>
                                                             </li>
                                                             <li className="btn-quick-sort alpha-desc">
-                                                                <a href="javascript:;" onclick="sortby('alpha-desc')" title="Tên Z-A"><i />Tên Z-A</a>
+                                                                <a href="javascript:;" onClick="sortby('alpha-desc')" title="Tên Z-A"><i />Tên Z-A</a>
                                                             </li>
                                                             <li className="btn-quick-sort price-asc">
-                                                                <a href="javascript:;" onclick="sortby('price-asc')" title="Giá thấp đến cao"><i />Giá thấp đến cao</a>
+                                                                <a href="javascript:;" onClick="sortby('price-asc')" title="Giá thấp đến cao"><i />Giá thấp đến cao</a>
                                                             </li>
                                                             <li className="btn-quick-sort price-desc">
-                                                                <a href="javascript:;" onclick="sortby('price-desc')" title="Giá cao xuống thấp"><i />Giá cao xuống thấp</a>
+                                                                <a href="javascript:;" onClick="sortby('price-desc')" title="Giá cao xuống thấp"><i />Giá cao xuống thấp</a>
                                                             </li>
                                                             <li className="btn-quick-sort created-desc">
-                                                                <a href="javascript:;" onclick="sortby('created-desc')" title="Mới nhất"><i />Mới nhất</a>
+                                                                <a href="javascript:;" onClick="sortby('created-desc')" title="Mới nhất"><i />Mới nhất</a>
                                                             </li>
                                                             <li className="btn-quick-sort created-asc">
-                                                                <a href="javascript:;" onclick="sortby('created-asc')" title="Cũ nhất"><i />Cũ nhất</a>
+                                                                <a href="javascript:;" onClick="sortby('created-asc')" title="Cũ nhất"><i />Cũ nhất</a>
                                                             </li>
                                                         </ul>
                                                     </div>

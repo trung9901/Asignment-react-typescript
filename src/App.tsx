@@ -32,6 +32,7 @@ import PostManager from './pages/admin/post/PostManager';
 import PostAdd from './pages/admin/post/PostAdd';
 import PostEdit from './pages/admin/post/PostEdit';
 import HomePage from './components/HomePage';
+import CartPage from './pages/cart/CartPage';
 
 
 function App() {
@@ -238,6 +239,12 @@ function App() {
 
     }
   }
+  // signout
+  // const signout = () => {
+  //   toast.success("đăng xuất thành công");
+  //   localStorage.removeItem('user');
+
+  // }
   return (
     <div className="App">
       <Routes>
@@ -249,6 +256,7 @@ function App() {
           </Route>
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
+          <Route path="/cart" element={<CartPage />} />
         </Route>
 
         <Route path="admin" element={<PrivateRouter><AdminLayout /></PrivateRouter>}>

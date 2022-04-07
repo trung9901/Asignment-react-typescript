@@ -34,8 +34,7 @@ export const remove = (id: number) => {
     });
 }
 export const update = (product: ProductType) => {
-    // const url = `/products/${product._id}`;
-    // return instance.put(url, product);
+
     const url = `/products/${user?.user._id}/${product._id}`;
     return instance.put(url, product, {
         headers: {
@@ -45,7 +44,7 @@ export const update = (product: ProductType) => {
 }
 
 
-// export const SearchProductByName = (keyword: String) => {
-//     const url = `/products?productname_like=${keyword}`;
-//     return instance.get(url);
-// };
+export const SearchProduct = (keyword: String) => {
+    const url = `/products?p=${keyword}`;
+    return instance.get(url);
+};

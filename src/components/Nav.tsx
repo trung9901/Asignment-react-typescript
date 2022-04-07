@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import { isAuthenticate } from '../utils/localStorage';
+import Dashboard from './../pages/admin/Dashboard';
 
 type Props = {}
 
@@ -336,11 +337,7 @@ const Nav = (props: Props) => {
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li className="nav-item ">
-                                            <a className="a-img" href="/cau-hoi-thuong-gap" title="Câu hỏi thường gặp">
-                                                Câu hỏi thường gặp
-                                            </a>
-                                        </li>
+
                                         <li className="nav-item ">
                                             <a className="a-img" href="/tuyen-dung" title="Tuyển dụng">
                                                 Tuyển dụng
@@ -350,6 +347,12 @@ const Nav = (props: Props) => {
                                             <a className="a-img" href="/lien-he" title="Liên hệ">
                                                 Liên hệ
                                             </a>
+                                        </li>
+                                        <li className="nav-item ">
+                                            <NavLink to="/admin">Dashboard</NavLink>
+                                            {/* <a className="a-img" href="/cau-hoi-thuong-gap" title="Câu hỏi thường gặp">
+
+                                            </a> */}
                                         </li>
                                     </ul>
                                 </nav>
@@ -366,6 +369,7 @@ const Nav = (props: Props) => {
                                 <div className="contact-phone account-header not">
 
                                     <p>Xin chào {user?.user.email}!</p>
+
                                     <a href="/account/login">Đăng nhập</a>
                                 </div>
                             </div>
