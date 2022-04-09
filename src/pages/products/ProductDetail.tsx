@@ -1,20 +1,40 @@
 import React, { useEffect, useState } from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import { read } from '../../api/Product';
 import { ProductType } from '../../types/Product';
+import { addToCart, removeItemInCart } from './../../utils/localStorage';
+import { toast } from 'react-toastify';
+import { list } from './../../api/Product';
 
 
-type Props = {}
+type Props = {
+    // addToCart: (props: ProductType) => void
+    // handleAddToCart: (clickedItem: ProductType) => void;
+}
+type FormInputs = {
+    name: string,
+    price: number,
 
+}
 const ProductDetail = (props: Props) => {
     const { id } = useParams();
     const [product, setProduct] = useState<ProductType>()
+    const { register, handleSubmit, formState: { errors } } = useForm<FormInputs>()
+    const onSubmit: SubmitHandler<FormInputs> = async () => {
+        const { data: Item } = await read(id)
+        addToCart(Item, function () { toast.success("thêm vào giỏ hàng thành công") })
+        console.log(Item)
+        // removeItemInCart(id, function () { toast.success("xoa giỏ hàng thành công") })
+    }
     useEffect(() => {
         const getProduct = async () => {
             const { data } = await read(id);
             setProduct(data)
         }
         getProduct();
+
+
     }, [id])
     return (
         <div>
@@ -99,7 +119,8 @@ const ProductDetail = (props: Props) => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <form encType="multipart/form-data" id="add-to-cart-form" data-cart-form action="https://pocomart.mysapo.net/cart/add" method="post" className="wishItem">
+                                        {/* form------------------------------------------------------------------------------ */}
+                                        <form onSubmit={handleSubmit(onSubmit)}>
                                             <div className="form-product">
                                                 <div className="box-variant clearfix  d-none ">
                                                     <input type="hidden" id="one_variant" name="variantId" defaultValue={47262129} />
@@ -117,7 +138,11 @@ const ProductDetail = (props: Props) => {
                                                         </div>
                                                     </div>
                                                     <div className="btn-mua d-flex gap-3 mt-3">
-                                                        <button type="submit" data-role="addtocart" className="btn btn-danger " >Thêm vào
+                                                        {/* data */}
+                                                        {/* <input type="hidden" {...register('name')} value={`${product?.name}`} />
+                                                        <input type="hidden" {...register('price')} value={`${product?.price}`} /> */}
+                                                        {/* data */}
+                                                        <button type="submit" className="btn btn-danger " >Thêm vào
                                                             giỏ<span className="block" >Cam kết chính hãng / đổi trả 24h</span></button>
                                                         <button type="button" className="btn btn-success">Mua ngay<span className="block">Thanh
                                                             toán nhanh chóng</span></button>
@@ -242,3 +267,4 @@ const ProductDetail = (props: Props) => {
 }
 
 export default ProductDetail;
+

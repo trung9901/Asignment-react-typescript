@@ -33,6 +33,7 @@ import PostAdd from './pages/admin/post/PostAdd';
 import PostEdit from './pages/admin/post/PostEdit';
 import HomePage from './components/HomePage';
 import CartPage from './pages/cart/CartPage';
+import { addToCart, authenticated } from './utils/localStorage';
 
 
 function App() {
@@ -69,7 +70,15 @@ function App() {
       setCategories(data);
     }
     getCategories();
-
+    // cart
+    // const getCart = () => {
+    //   let cart = [];
+    //   cart = localStorage.getItem('cart')
+    //   // if (localStorage.getItem('cart')) {
+    //   //   cart = JSON.parse(localStorage.getItem('cart'));
+    //   // }
+    // }
+    // getCart();
 
   }, []);
 
@@ -245,6 +254,12 @@ function App() {
   //   localStorage.removeItem('user');
 
   // }
+
+  // cart
+  // const handleAddToCart = (dataCart: ProductType) => {
+
+  //   addToCart(dataCart, function () { toast.success("thêm vào giỏ hàng thành công") })
+  // };
   return (
     <div className="App">
       <Routes>

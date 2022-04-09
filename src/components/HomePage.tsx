@@ -1,6 +1,7 @@
 import React from 'react'
 import { CategoryType } from '../types/Category'
 import { ProductType } from '../types/Product'
+import { addToCart } from '../utils/localStorage'
 import Banner from './Banner'
 import Search from './Search'
 type HomePageProps = {

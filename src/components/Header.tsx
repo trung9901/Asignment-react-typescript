@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Nav from './Nav'
 import { NavLink } from 'react-router-dom';
-import { isAuthenticate } from '../utils/localStorage';
+import { authenticated, isAuthenticate } from '../utils/localStorage';
 
 type Props = {}
 
@@ -21,15 +21,19 @@ const Header = (props: Props) => {
             return (
                 <div className="">
                     <p>Xin chào!</p>
-
-                    <NavLink to="/signin" onClick={() => { setSignout(true) }}>Đăng nhập</NavLink>
+                    <NavLink to="/signin" >Đăng nhập</NavLink>
                 </div>
             )
         }
     }
     useEffect(() => {
         console.log(1)
-        // setSignout(true)
+        // const user = isAuthenticate();
+        // if (user) {
+        //     authenticated()
+        //     setSignout(true)
+        // }
+
     })
 
     return (
