@@ -7,22 +7,22 @@ type Props = {}
 
 const Header = (props: Props) => {
     const user = isAuthenticate();
-    const [signout, setSignout] = useState(1);
+    const [signout, setSignout] = useState(true);
 
     const check = () => {
-        if (signout == 1 && user) {
+        if (signout == true && user) {
             return (
                 <div className="">
                     <p>Xin chào {user?.user.name}!</p>
-                    <NavLink to="" onClick={() => { localStorage.removeItem('user'), setSignout(0) }}>Đăng xuất</NavLink>
-                    {/* {user ? <NavLink to="" onClick={() => { localStorage.removeItem('user') }}>Đăng xuất</NavLink> : <NavLink to="/signin">Đăng nhập</NavLink>} */}
+                    <NavLink to="" onClick={() => { localStorage.removeItem('user'), setSignout(false) }}>Đăng xuất</NavLink>
                 </div>
             )
         } else {
             return (
                 <div className="">
                     <p>Xin chào!</p>
-                    <NavLink to="/signin" onClick={() => { setSignout(1) }} >Đăng nhập</NavLink>
+
+                    <NavLink to="/signin">Đăng nhập</NavLink>
                 </div>
 
             )
@@ -61,12 +61,12 @@ const Header = (props: Props) => {
                                     </form>
                                 </div>
                             </div>
-                            <div className="contact-phone">
+                            {/* <div className="contact-phone">
                                 <p>
                                     Tư vấn hỗ trợ
                                 </p>
                                 <a href="tel:19006750">19006750</a>
-                            </div>
+                            </div> */}
                             <div className="contact-phone account-header not">
                                 {check()}
                                 {/* <p>Xin chào {user?.user.name}!</p>

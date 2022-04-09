@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { signin, signup } from '../api/auth';
 import { authenticated } from '../utils/localStorage';
 import { ToastContainer, toast } from 'react-toastify';
+import { useState } from 'react';
 type TypeInputs = {
     email: string,
     password: string
@@ -11,18 +12,19 @@ type TypeInputs = {
 const Signin = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<TypeInputs>();
     const navigate = useNavigate();
-
+    const [signout, setSignout] = useState(false);
     const onSubmit: SubmitHandler<TypeInputs> = async (dataSignin) => {
         const { data: user } = await signin(dataSignin);
-        console.log(user);
+
         // localstorage
         if (user) {
-            toast.success("Bạn đã đăng nhập thành công chờ 3s")
-            setTimeout(() => {
-                authenticated(user, () => {
-                    navigate('/');
-                })
-            }, 3000);
+            setSignout(true)
+            toast.success("Bạn đã đăng nhập thành công ")
+
+            authenticated(user, () => {
+                navigate('/');
+            })
+
         }
 
 
@@ -54,7 +56,7 @@ const Signin = () => {
                                                 <label>Mật khẩu <span className="required">*</span> </label>
                                                 <input type="password" className="form-control form-control-lg" id="customer_password" placeholder="Mật khẩu" required {...register('password')} />
                                             </fieldset>
-                                            <button className="btn btn-danger mx-auto" type="submit" value="Đăng nhập">Đăng nhập</button>
+                                            <button className="btn btn-danger mx-auto" type="submit" value="Đăng nhập" >Đăng nhập</button>
                                         </form>
                                         <div className="block social-login--facebooks">
                                             <p className="a-center">
