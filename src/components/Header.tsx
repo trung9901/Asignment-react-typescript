@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Nav from './Nav'
 import { NavLink } from 'react-router-dom';
 import { isAuthenticate } from '../utils/localStorage';
@@ -22,13 +22,15 @@ const Header = (props: Props) => {
                 <div className="">
                     <p>Xin chào!</p>
 
-                    <NavLink to="/signin">Đăng nhập</NavLink>
+                    <NavLink to="/signin" onClick={() => { setSignout(true) }}>Đăng nhập</NavLink>
                 </div>
-
             )
         }
     }
-
+    useEffect(() => {
+        console.log(1)
+        // setSignout(true)
+    })
 
     return (
         <div>

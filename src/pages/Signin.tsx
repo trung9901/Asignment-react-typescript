@@ -12,13 +12,13 @@ type TypeInputs = {
 const Signin = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<TypeInputs>();
     const navigate = useNavigate();
-    const [signout, setSignout] = useState(false);
+
     const onSubmit: SubmitHandler<TypeInputs> = async (dataSignin) => {
         const { data: user } = await signin(dataSignin);
 
         // localstorage
         if (user) {
-            setSignout(true)
+
             toast.success("Bạn đã đăng nhập thành công ")
 
             authenticated(user, () => {
