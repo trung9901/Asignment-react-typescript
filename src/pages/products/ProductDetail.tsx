@@ -18,23 +18,29 @@ type FormInputs = {
 
 }
 const ProductDetail = (props: Props) => {
+    const [loading, setLoading] = useState(true);
     const { id } = useParams();
     const [product, setProduct] = useState<ProductType>()
+
     const { register, handleSubmit, formState: { errors } } = useForm<FormInputs>()
-    const onSubmit: SubmitHandler<FormInputs> = async () => {
-        const { data: Item } = await read(id)
-        addToCart(Item, function () { toast.success("thêm vào giỏ hàng thành công") })
-        console.log(Item)
+    const onSubmit: SubmitHandler<FormInputs> = (data: any) => {
+
+        if (data) {
+            console.log(data)
+            addToCart({ ...data }, function () { toast.success("thêm vào giỏ hàng thành công") })
+        }
+
         // removeItemInCart(id, function () { toast.success("xoa giỏ hàng thành công") })
     }
+
+
     useEffect(() => {
+
         const getProduct = async () => {
             const { data } = await read(id);
             setProduct(data)
         }
         getProduct();
-
-
     }, [id])
     return (
         <div>
@@ -123,7 +129,7 @@ const ProductDetail = (props: Props) => {
                                         <form onSubmit={handleSubmit(onSubmit)}>
                                             <div className="form-product">
                                                 <div className="box-variant clearfix  d-none ">
-                                                    <input type="hidden" id="one_variant" name="variantId" defaultValue={47262129} />
+                                                    {/* <input type="hidden" id="one_variant" name="variantId" defaultValue={47262129} /> */}
                                                 </div>
                                                 <div className="clearfix from-action-addcart ">
                                                     <div className="qty-ant clearfix custom-btn-number ">
@@ -132,15 +138,12 @@ const ProductDetail = (props: Props) => {
                                                             <button className="btn-minus btn-cts" type="button">–</button>
                                                             <input aria-label="Số lượng" type="text" className="qty input-text " id="qty" name="quantity" size={3} defaultValue={1} maxLength={3} />
                                                             <button className="btn-plus btn-cts" type="button">+</button>
-
-
-
                                                         </div>
                                                     </div>
                                                     <div className="btn-mua d-flex gap-3 mt-3">
                                                         {/* data */}
-                                                        {/* <input type="hidden" {...register('name')} value={`${product?.name}`} />
-                                                        <input type="hidden" {...register('price')} value={`${product?.price}`} /> */}
+                                                        <input type="hidden" {...register('name')} value={`${product?.name}`} />
+                                                        <input type="hidden" {...register('price')} value={`${product?.price}`} />
                                                         {/* data */}
                                                         <button type="submit" className="btn btn-danger " >Thêm vào
                                                             giỏ<span className="block" >Cam kết chính hãng / đổi trả 24h</span></button>

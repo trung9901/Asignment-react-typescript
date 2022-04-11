@@ -6,6 +6,10 @@ type Props = {
 }
 
 const CartPage = ({ }: Props) => {
+    let cart: ProductType[];
+    if (localStorage.getItem('cart')) {
+        cart = JSON.parse(localStorage.getItem('cart') as string);
+    }
 
     return (
         <div>
@@ -31,7 +35,7 @@ const CartPage = ({ }: Props) => {
                                             {/* --------------------- */}
 
 
-                                            {/* {cart?.map((item, index) => {
+                                            {cart?.map((item, index) => {
                                                 <div className="ajaxcart__inner ajaxcart__inner--has-fixed-footer cart_body items my-1">
                                                     <div className="ajaxcart__row">
                                                         <div className="ajaxcart__product cart_product" data-line={1}>
@@ -69,7 +73,7 @@ const CartPage = ({ }: Props) => {
                                                     </div>
 
                                                 </div>
-                                            })} */}
+                                            })}
 
                                             {/* --------------------- */}
 
@@ -85,7 +89,7 @@ const CartPage = ({ }: Props) => {
                                                             </div>
                                                         </div>
                                                         <div className="cart__btn-proceed-checkout-dt">
-                                                            <button onClick="location.href='/checkout'" type="button" className="button btn btn-default cart__btn-proceed-checkout" id="btn-proceed-checkout" title="Thanh toán">Thanh toán</button>
+                                                            <button type="button" className="button btn btn-default cart__btn-proceed-checkout" id="btn-proceed-checkout" title="Thanh toán">Thanh toán</button>
                                                         </div>
                                                     </div>
                                                 </div>

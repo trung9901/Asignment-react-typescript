@@ -27,14 +27,9 @@ const Header = (props: Props) => {
         }
     }
     useEffect(() => {
-        console.log(1)
-        // const user = isAuthenticate();
-        // if (user) {
-        //     authenticated()
-        //     setSignout(true)
-        // }
 
-    })
+
+    }, [])
 
     return (
         <div>
