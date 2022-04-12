@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import { create, list, remove, update } from './api/Product';
+import { create, list, read, remove, SearchProductByName, update } from './api/Product';
 import PrivateRouter from './components/PrivateRouter';
 import ProductList from './components/HomePage';
 import Dashboard from './pages/admin/Dashboard';
@@ -33,7 +33,7 @@ import PostAdd from './pages/admin/post/PostAdd';
 import PostEdit from './pages/admin/post/PostEdit';
 import HomePage from './components/HomePage';
 import CartPage from './pages/cart/CartPage';
-import { addToCart, authenticated } from './utils/localStorage';
+import { addToCart, authenticated, decreaseItemInCart, increaseItemInCart, removeItemInCart } from './utils/localStorage';
 
 
 function App() {
@@ -42,6 +42,8 @@ function App() {
   const [users, setUsers] = useState<UserType[]>([])
   const [posts, setPosts] = useState<PostType[]>([])
   const [categories, setCategories] = useState<CategoryType[]>([])
+  const [searchProduct, setsearchProduct] = useState<ProductType[]>([]);
+  const [cart, setCart] = useState<ProductType[]>([]);
   useEffect(() => {
     // product
     const getProducts = async () => {
@@ -256,22 +258,52 @@ function App() {
   // }
 
   // cart
-  // const handleAddToCart = (dataCart: ProductType) => {
+  const onHandleAddToCart = async (id: number) => {
+    const { data } = await read(id)
+    addToCart({ ...data, quantity: 1 }, function () {
+      toast.success(`Thêm ${data.name} vào giỏ hàng thành công!`)
+      setCart(JSON.parse(localStorage.getItem('cart') as string))
+    })
+  }
+  const onHandleIncreaseItemInCart = (id: number) => {
+    increaseItemInCart(id, () => {
+      setCart(JSON.parse(localStorage.getItem('cart') as string))
+    })
+  }
+  const onHandleDecreaseItemInCart = (id: number) => {
+    decreaseItemInCart(id, () => {
+      setCart(JSON.parse(localStorage.getItem('cart') as string))
+    })
+  }
 
-  //   addToCart(dataCart, function () { toast.success("thêm vào giỏ hàng thành công") })
-  // };
+  const onHandleRemoveCart = (id: number) => {
+    removeItemInCart(id, () => {
+      setCart(JSON.parse(localStorage.getItem('cart') as string))
+    })
+  }
+
+  // search
+  const onhandleSearch = async (keyword: string) => {
+    const { data } = await SearchProductByName(keyword)
+    setsearchProduct(data)
+
+  }
+
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<WebsiteLayout />} >
+        <Route path="/" element={<WebsiteLayout searchProduct={onhandleSearch} />} >
           <Route index element={<HomePage categories={categories} products={products} />} />
           <Route path="products">
             <Route index element={<ProductPage products={products} />} />
-            <Route path=":id" element={<ProductDetail />} />
+            <Route path=":id" element={<ProductDetail onAddToCart={onHandleAddToCart} />} />
           </Route>
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
-          <Route path="/cart" element={<CartPage />} />
+          <Route path="/cart" element={<CartPage onRemoveCart={onHandleRemoveCart} onDecreaseItemInCart={onHandleDecreaseItemInCart} onIncreaseItemInCart={onHandleIncreaseItemInCart} />} />
+          <Route path="search">
+            <Route index element={<ProductPage products={searchProduct} />} />
+          </Route>
         </Route>
 
         <Route path="admin" element={<PrivateRouter><AdminLayout /></PrivateRouter>}>

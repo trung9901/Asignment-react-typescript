@@ -2,11 +2,13 @@ import React from 'react'
 import { ProductType } from '../../types/Product';
 
 type Props = {
-    item: ProductType[]
+    onIncreaseItemInCart: (id: number) => void
+    onDecreaseItemInCart: (id: number) => void
+    onRemoveCart: (id: number) => void
 }
 
 const CartPage = ({ }: Props) => {
-    let cart: ProductType[];
+    let cart: any = [];
     if (localStorage.getItem('cart')) {
         cart = JSON.parse(localStorage.getItem('cart') as string);
     }
@@ -35,19 +37,19 @@ const CartPage = ({ }: Props) => {
                                             {/* --------------------- */}
 
 
-                                            {cart?.map((item, index) => {
-                                                <div className="ajaxcart__inner ajaxcart__inner--has-fixed-footer cart_body items my-1">
+                                            {cart && cart.map((item: any, index: number) => {
+                                                <div className="ajaxcart__inner ajaxcart__inner--has-fixed-footer cart_body items my-1" key={index}>
                                                     <div className="ajaxcart__row">
                                                         <div className="ajaxcart__product cart_product" data-line={1}>
                                                             <a href="/samsung-galaxy-note-21" className="ajaxcart__product-image cart_image" title="Samsung Galaxy Note 21"><img src="//bizweb.dktcdn.net/thumb/compact/100/429/689/products/dien-thoai-samsung-galaxy-s21-ultra-5g-256g-g998b-bac-h0l175-b6ac0e17-afc8-42a9-bb4f-aecaf81ad7e2.jpg" alt="Samsung Galaxy Note 21" /></a>
                                                             <div className="grid__item cart_info">
                                                                 <div className="ajaxcart__product-name-wrapper cart_name">
-                                                                    <a href="/samsung-galaxy-note-21" className="ajaxcart__product-name h4" title="Samsung Galaxy Note 21">Samsung Galaxy Note 21</a>
-                                                                    <a className="cart__btn-remove remove-item-cart ajaxifyCart--remove" href="javascript:;" data-line={1}>Xóa</a>
+                                                                    <a href="/samsung-galaxy-note-21" className="ajaxcart__product-name h4" title="Samsung Galaxy Note 21">{item.name}</a>
+                                                                    <a className="cart__btn-remove remove-item-cart ajaxifyCart--remove" onClick={() => props.onRemoveCart(item._id)} >Xóa</a>
                                                                 </div>
                                                                 <div className="grid">
                                                                     <div className="grid__item one-half text-right cart_prices">
-                                                                        <span className="cart-price">29.000.000₫</span>
+                                                                        <span className="cart-price">{item.price}₫</span>
                                                                     </div>
                                                                 </div>
                                                                 <div className="grid">

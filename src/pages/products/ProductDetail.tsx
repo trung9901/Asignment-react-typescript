@@ -9,12 +9,18 @@ import { list } from './../../api/Product';
 
 
 type Props = {
-    // addToCart: (props: ProductType) => void
+    onAddToCart: (cart: any) => void;
+
     // handleAddToCart: (clickedItem: ProductType) => void;
 }
 type FormInputs = {
-    name: string,
-    price: number,
+    _id?: number,
+    name: String,
+    price: number
+    // img: String,
+    quantity: number,
+    description: String,
+    category: string
 
 }
 const ProductDetail = (props: Props) => {
@@ -22,16 +28,13 @@ const ProductDetail = (props: Props) => {
     const { id } = useParams();
     const [product, setProduct] = useState<ProductType>()
 
-    const { register, handleSubmit, formState: { errors } } = useForm<FormInputs>()
-    const onSubmit: SubmitHandler<FormInputs> = (data: any) => {
+    // const { register, handleSubmit, formState: { errors } } = useForm<FormInputs>()
+    // const onSubmit: SubmitHandler<FormInputs> = () => {
 
-        if (data) {
-            console.log(data)
-            addToCart({ ...data }, function () { toast.success("thêm vào giỏ hàng thành công") })
-        }
+    //     props.onAddToCart(product._id)
 
-        // removeItemInCart(id, function () { toast.success("xoa giỏ hàng thành công") })
-    }
+    //     // removeItemInCart(id, function () { toast.success("xoa giỏ hàng thành công") })
+    // }
 
 
     useEffect(() => {
@@ -126,34 +129,34 @@ const ProductDetail = (props: Props) => {
                                             </div>
                                         </div>
                                         {/* form------------------------------------------------------------------------------ */}
-                                        <form onSubmit={handleSubmit(onSubmit)}>
-                                            <div className="form-product">
-                                                <div className="box-variant clearfix  d-none ">
-                                                    {/* <input type="hidden" id="one_variant" name="variantId" defaultValue={47262129} /> */}
-                                                </div>
-                                                <div className="clearfix from-action-addcart ">
-                                                    <div className="qty-ant clearfix custom-btn-number ">
-                                                        <label className="d-none">Số lượng:</label>
-                                                        <div className="custom custom-btn-numbers clearfix input_number_product">
-                                                            <button className="btn-minus btn-cts" type="button">–</button>
-                                                            <input aria-label="Số lượng" type="text" className="qty input-text " id="qty" name="quantity" size={3} defaultValue={1} maxLength={3} />
-                                                            <button className="btn-plus btn-cts" type="button">+</button>
-                                                        </div>
-                                                    </div>
-                                                    <div className="btn-mua d-flex gap-3 mt-3">
-                                                        {/* data */}
-                                                        <input type="hidden" {...register('name')} value={`${product?.name}`} />
-                                                        <input type="hidden" {...register('price')} value={`${product?.price}`} />
-                                                        {/* data */}
-                                                        <button type="submit" className="btn btn-danger " >Thêm vào
-                                                            giỏ<span className="block" >Cam kết chính hãng / đổi trả 24h</span></button>
-                                                        <button type="button" className="btn btn-success">Mua ngay<span className="block">Thanh
-                                                            toán nhanh chóng</span></button>
-                                                    </div>
-                                                </div>
 
+                                        <div className="">
+                                            <div className="box-variant clearfix  d-none ">
+                                                {/* <input type="hidden" id="one_variant" name="variantId" defaultValue={47262129} /> */}
                                             </div>
-                                        </form>
+                                            <div className="clearfix from-action-addcart ">
+                                                <div className="qty-ant clearfix custom-btn-number ">
+                                                    <label className="d-none">Số lượng:</label>
+                                                    <div className="custom custom-btn-numbers clearfix input_number_product">
+                                                        <button className="btn-minus btn-cts" type="button">–</button>
+                                                        <input aria-label="Số lượng" type="text" className="qty input-text " id="qty" name="quantity" size={3} defaultValue={1} maxLength={3} />
+                                                        <button className="btn-plus btn-cts" type="button">+</button>
+                                                    </div>
+                                                </div>
+                                                <div className=" d-flex gap-3 mt-3">
+                                                    {/* data */}
+                                                    {/* <input type="hidden" {...register('name')} value={`${product?.name}`} />
+                                                        <input type="hidden" {...register('price')} value={`${product?.price}`} /> */}
+                                                    {/* data */}
+                                                    <button className="btn btn-danger " onClick={() => props.onAddToCart(product._id)} >Thêm vào
+                                                        giỏ<span className="block" >Cam kết chính hãng / đổi trả 24h</span></button>
+                                                    <button type="button" className="btn btn-success">Mua ngay<span className="block">Thanh
+                                                        toán nhanh chóng</span></button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
                                     </div>
 
                                 </div>

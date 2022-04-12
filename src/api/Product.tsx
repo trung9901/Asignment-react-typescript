@@ -44,7 +44,7 @@ export const update = (product: ProductType) => {
 }
 
 
-export const SearchProduct = (keyword: String) => {
-    const url = `/products?p=${keyword}`;
-    return instance.get(url);
+export const SearchProductByName = (keyword: string) => {
+    const url = `/search?q=${keyword}`;
+    return instance.post(url);
 };
