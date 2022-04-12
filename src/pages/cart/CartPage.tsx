@@ -35,10 +35,8 @@ const CartPage = ({ }: Props) => {
                                                 <div>Thông tin sản phẩm</div><div>Đơn giá</div><div>Số lượng</div><div>Thành tiền</div>
                                             </div>
                                             {/* --------------------- */}
-
-
-                                            {cart && cart.map((item: any, index: number) => {
-                                                <div className="ajaxcart__inner ajaxcart__inner--has-fixed-footer cart_body items my-1" key={index}>
+                                            {cart?.map((item: any, index: number) => {
+                                                <div className="ajaxcart__inner ajaxcart__inner--has-fixed-footer cart_body items my-1" key={index} >
                                                     <div className="ajaxcart__row">
                                                         <div className="ajaxcart__product cart_product" data-line={1}>
                                                             <a href="/samsung-galaxy-note-21" className="ajaxcart__product-image cart_image" title="Samsung Galaxy Note 21"><img src="//bizweb.dktcdn.net/thumb/compact/100/429/689/products/dien-thoai-samsung-galaxy-s21-ultra-5g-256g-g998b-bac-h0l175-b6ac0e17-afc8-42a9-bb4f-aecaf81ad7e2.jpg" alt="Samsung Galaxy Note 21" /></a>
@@ -58,7 +56,7 @@ const CartPage = ({ }: Props) => {
                                                                             <button type="button" className="ajaxcart__qty-adjust ajaxcart__qty--minus items-count" data-id data-qty={2} data-line={1} aria-label="-">
                                                                                 -
                                                                             </button>
-                                                                            <input type="text" name="updates[]" className="ajaxcart__qty-num number-sidebar" maxLength={3} defaultValue={3} min={0} data-id data-line={1} aria-label="quantity" pattern="[0-9]*" />
+                                                                            <input type="text" name="updates[]" className="ajaxcart__qty-num number-sidebar" aria-label="quantity" pattern="[0-9]*" />
                                                                             <button type="button" className="ajaxcart__qty-adjust ajaxcart__qty--plus items-count" data-id data-line={1} data-qty={4} aria-label="+">
                                                                                 +
                                                                             </button>
@@ -67,7 +65,7 @@ const CartPage = ({ }: Props) => {
                                                                 </div>
                                                                 <div className="grid">
                                                                     <div className="grid__item one-half text-right cart_prices">
-                                                                        <span className="cart-price">87.000.000₫</span>
+                                                                        <span className="cart-price">₫</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -75,7 +73,9 @@ const CartPage = ({ }: Props) => {
                                                     </div>
 
                                                 </div>
+
                                             })}
+
 
                                             {/* --------------------- */}
 
@@ -87,7 +87,7 @@ const CartPage = ({ }: Props) => {
                                                         <div className="ajaxcart__subtotal">
                                                             <div className="cart__subtotal">
                                                                 <div className="cart__col-6">Tổng tiền:</div>
-                                                                <div className="text-right cart__totle"><span className="total-price">87.000.000₫</span></div>
+                                                                <div className="text-right cart__totle"><span className="total-price">₫</span></div>
                                                             </div>
                                                         </div>
                                                         <div className="cart__btn-proceed-checkout-dt">

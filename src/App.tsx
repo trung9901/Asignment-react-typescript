@@ -286,7 +286,6 @@ function App() {
   const onhandleSearch = async (keyword: string) => {
     const { data } = await SearchProductByName(keyword)
     setsearchProduct(data)
-
   }
 
   return (

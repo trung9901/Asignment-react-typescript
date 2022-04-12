@@ -5,7 +5,7 @@ import { authenticated, isAuthenticate } from '../utils/localStorage';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { SearchProductByName } from '../api/Product'
 type Props = {
-    search: (keyword: string) => void
+    onSearch: (keyword: string) => void
 }
 type FormInputs = {
     q: string
@@ -15,7 +15,8 @@ const Header = (props: Props) => {
     const { register, handleSubmit, formState: { errors } } = useForm<FormInputs>();
     const navigate = useNavigate()
     const onSubmit: SubmitHandler<FormInputs> = data => {
-        SearchProductByName()
+        props.onSearch(data.q)
+        navigate(`/search?q=${data.q}`)
     }
     const user = isAuthenticate();
     const [signout, setSignout] = useState(true);
