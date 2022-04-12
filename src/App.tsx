@@ -278,6 +278,7 @@ function App() {
 
   const onHandleRemoveCart = (id: number) => {
     removeItemInCart(id, () => {
+      toast.success(`Xoá sản phẩm thành công!`)
       setCart(JSON.parse(localStorage.getItem('cart') as string))
     })
   }

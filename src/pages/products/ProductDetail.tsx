@@ -10,32 +10,12 @@ import { list } from './../../api/Product';
 
 type Props = {
     onAddToCart: (cart: any) => void;
-
-    // handleAddToCart: (clickedItem: ProductType) => void;
 }
-type FormInputs = {
-    _id?: number,
-    name: String,
-    price: number
-    // img: String,
-    quantity: number,
-    description: String,
-    category: string
 
-}
 const ProductDetail = (props: Props) => {
     const [loading, setLoading] = useState(true);
     const { id } = useParams();
-    const [product, setProduct] = useState<ProductType>()
-
-    // const { register, handleSubmit, formState: { errors } } = useForm<FormInputs>()
-    // const onSubmit: SubmitHandler<FormInputs> = () => {
-
-    //     props.onAddToCart(product._id)
-
-    //     // removeItemInCart(id, function () { toast.success("xoa giỏ hàng thành công") })
-    // }
-
+    const [product, setProduct] = useState<any>()
 
     useEffect(() => {
 
@@ -220,8 +200,8 @@ const ProductDetail = (props: Props) => {
                                                                 <span className="compare-price">25.500.000₫</span>
                                                                 <div className="action-cart">
                                                                     <input className="hidden" type="hidden" name="variantId" defaultValue={47259399} />
-                                                                    <button className="btn btn-cart btn-left  btn btn-views left-to" title="Xem thêm lựa chọn" type="button" onclick="window.location.href='samsung-galaxy-s21-ultra.html'">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" className="Capa_1" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 47 47" style={{ enableBackground: 'new 0 0 47 47' }} xmlSpace="preserve">
+                                                                    <button className="btn btn-cart btn-left  btn btn-views left-to" title="Xem thêm lựa chọn" type="button">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" className="Capa_1" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 47 47" xmlSpace="preserve">
                                                                             <g>
                                                                                 <g className="Layer_1_110_">
                                                                                     <g>
