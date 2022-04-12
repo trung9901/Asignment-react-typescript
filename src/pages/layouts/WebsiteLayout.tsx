@@ -3,12 +3,15 @@ import { Outlet } from 'react-router-dom'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 
-type Props = {}
+type Props = {
+    searchProduct: (keyword: string) => void
+}
+
 
 const WebsiteLayout = (props: Props) => {
     return (
         <div>
-            <Header />
+            <Header onSearch={props.searchProduct} />
 
 
             <Outlet />

@@ -4,6 +4,7 @@ import { ProductType } from '../types/Product'
 import { addToCart } from '../utils/localStorage'
 import Banner from './Banner'
 import Search from './Search'
+import { Link, NavLink } from 'react-router-dom';
 type HomePageProps = {
     products: ProductType[]
     categories: CategoryType[]
@@ -400,7 +401,8 @@ const HomePage = ({ products, categories }: HomePageProps) => {
                                                 <div className=" item_product_main">
                                                     <form action="/cart/add" method="post" className="variants product-action wishItem" data-cart-form data-id="product-actions-21989403" encType="multipart/form-data">
                                                         <div className="product-thumbnail sale " data-sale="Giảm 5% ">
-                                                            <a className="image_thumb" href={`/products/${product._id}`} title="Samsung Galaxy Note 21">
+
+                                                            <NavLink to={`/products/${product._id}`}>
                                                                 <picture>
 
                                                                     <source media="(min-width: 1200px)" srcSet="//bizweb.dktcdn.net/thumb/medium/100/429/689/products/dien-thoai-samsung-galaxy-s21-ultra-5g-256g-g998b-bac-h0l175-b6ac0e17-afc8-42a9-bb4f-aecaf81ad7e2.jpg?v=1623565400000" />
@@ -410,7 +412,7 @@ const HomePage = ({ products, categories }: HomePageProps) => {
                                                                     <source media="(max-width: 375px)" srcSet="//bizweb.dktcdn.net/thumb/compact/100/429/689/products/dien-thoai-samsung-galaxy-s21-ultra-5g-256g-g998b-bac-h0l175-b6ac0e17-afc8-42a9-bb4f-aecaf81ad7e2.jpg?v=1623565400000" />
                                                                     <img width={240} height={240} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-src="" alt="Samsung Galaxy Note 21" className="lazyload img-responsive center-block" />
                                                                 </picture>
-                                                            </a>
+                                                            </NavLink>
                                                             <div className="product-action">
                                                                 <div className="group_action">
                                                                     <a href="javascript:void(0)" className="setWishlist btn-views" data-wish="samsung-galaxy-note-21" tabIndex={0} title="Thêm vào yêu thích">
@@ -423,7 +425,7 @@ const HomePage = ({ products, categories }: HomePageProps) => {
                                                             </div>
                                                         </div>
                                                         <div className="product-info">
-                                                            <h3 className="product-name"><a href={`/products/${product._id}`} title="Samsung Galaxy Note 21">{product.name}</a></h3>
+                                                            <h3 className="product-name"><NavLink to={`/products/${product._id}`}> {product.name}</NavLink></h3>
                                                             <div className="price-box">
                                                                 <span className="price">{product.price}₫</span>
                                                                 <span className="compare-price">30.500.000₫</span>
