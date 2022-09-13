@@ -1,3 +1,103 @@
 {
-    "products": []
+  "products": [{
+      "id": 1,
+      "name": "Samsung Galaxy Note 21",
+      "price": "29.000.000",
+      "img": "https://bizweb.dktcdn.net/100/429/689/products/dien-thoai-samsung-galaxy-s21-ultra-5g-256g-g998b-bac-h0l175-b6ac0e17-afc8-42a9-bb4f-aecaf81ad7e2.jpg?v=1623565400000",
+      "quantity": "12",
+      "description": ""
+    },
+    {
+      "id": 2,
+      "name": "Apple iPhone 12 Mini New",
+      "price": "26.000.000",
+      "img": "https://bizweb.dktcdn.net/100/429/689/products/dien-thoai-samsung-galaxy-s21-ultra-5g-256g-g998b-bac-h0l175-b6ac0e17-afc8-42a9-bb4f-aecaf81ad7e2.jpg?v=1623565400000",
+      "quantity": "62",
+      "description": ""
+    },
+    {
+      "id": 3,
+      "name": "iPhone XR - Vàng Chính Hãng",
+      "price": "28.000.000",
+      "img": "https://bizweb.dktcdn.net/100/429/689/products/dien-thoai-samsung-galaxy-s21-ultra-5g-256g-g998b-bac-h0l175-b6ac0e17-afc8-42a9-bb4f-aecaf81ad7e2.jpg?v=1623565400000",
+      "quantity": "12",
+      "description": ""
+    },
+    {
+      "id": 4,
+      "name": "iPhone XR - Vàng Chính Hãng",
+      "price": "28.000.000",
+      "img": "https://bizweb.dktcdn.net/100/429/689/products/dien-thoai-samsung-galaxy-s21-ultra-5g-256g-g998b-bac-h0l175-b6ac0e17-afc8-42a9-bb4f-aecaf81ad7e2.jpg?v=1623565400000",
+      "quantity": "12",
+      "description": ""
+    },
+    {
+      "id": 5,
+      "name": "iPhone XR - Vàng Chính Hãng",
+      "price": "28.000.000",
+      "img": "https://bizweb.dktcdn.net/100/429/689/products/dien-thoai-samsung-galaxy-s21-ultra-5g-256g-g998b-bac-h0l175-b6ac0e17-afc8-42a9-bb4f-aecaf81ad7e2.jpg?v=1623565400000",
+      "quantity": "12",
+      "description": ""
+    },
+    {
+      "id": 6,
+      "name": "iPhone XR - Vàng Chính Hãng",
+      "price": "28.000.000",
+      "img": "https://bizweb.dktcdn.net/100/429/689/products/dien-thoai-samsung-galaxy-s21-ultra-5g-256g-g998b-bac-h0l175-b6ac0e17-afc8-42a9-bb4f-aecaf81ad7e2.jpg?v=1623565400000",
+      "quantity": "12",
+      "description": ""
+    },
+    {
+      "id": 7,
+      "name": "iPhone XR - Vàng Chính Hãng",
+      "price": "28.000.000",
+      "img": "https://bizweb.dktcdn.net/100/429/689/products/dien-thoai-samsung-galaxy-s21-ultra-5g-256g-g998b-bac-h0l175-b6ac0e17-afc8-42a9-bb4f-aecaf81ad7e2.jpg?v=1623565400000",
+      "quantity": "12",
+      "description": ""
+    },
+    {
+      "name": "zxczxvc",
+      "img": {},
+      "price": "123124",
+      "quantity": "1231",
+      "description": "ádasf",
+      "id": 8
+    },
+    {
+      "name": "àasfasdzxcz",
+      "img": {},
+      "price": "12120",
+      "quantity": "123123",
+      "description": "ádasfaf",
+      "id": 9
+    }
+  ],
+  "categories": [{
+      "name": "Điện thoại - Máy tính bảng"
+    },
+    {
+      "name": "Phụ kiện - Thiết bị số"
+    },
+    {
+      "name": "Máy ảnh - Quay phim"
+    },
+    {
+      "name": "Điện gia dụng - Nhà bếp"
+    },
+    {
+      "name": "Laptop - Thiết bị IT"
+    },
+    {
+      "name": "Máy chơi game - Trò chơi"
+    },
+    {
+      "name": "Trang sức - Sành điệu"
+    }
+  ],
+  "users": [{
+    "name": "asdas",
+    "id": 1,
+    "email": "admin@gmail.com",
+    "password": "123456"
+  }]
 }
